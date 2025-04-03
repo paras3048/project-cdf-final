@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply overflow-y-auto;
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    @apply overflow-x-hidden m-0 p-0;
+    width: 100vw;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-full overflow-hidden;
+  }
+}

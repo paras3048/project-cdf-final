@@ -87,10 +87,10 @@ export default function AboutUs() {
         <h2 className="text-4xl font-bold text-black text-center mb-16">Meet Our Team</h2>
         
         {/* First Row */}
-        <div className="flex justify-center gap-8 mb-16">
+        <div className="flex flex-wrap justify-center gap-8 mb-16">
           {teamMembers.row1.map((member, index) => (
-            <div key={index} className="text-center">
-              <div className="w-48 h-48 mx-auto mb-4">
+            <div key={index} className="text-center w-48">
+              <div className="w-40 h-40 mx-auto mb-4">
                 <img 
                   src={member.image}
                   alt={member.name}
@@ -112,10 +112,10 @@ export default function AboutUs() {
         </div>
 
         {/* Second Row */}
-        <div className="flex justify-center flex-wrap gap-8">
+        <div className="flex flex-wrap justify-center gap-8">
           {teamMembers.row2.map((member, index) => (
             <div key={index} className="text-center w-48">
-              <div className="w-48 h-48 mx-auto mb-4">
+              <div className="w-40 h-40 mx-auto mb-4">
                 <img 
                   src={member.image}
                   alt={member.name}

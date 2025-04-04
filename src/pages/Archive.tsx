@@ -23,7 +23,7 @@ const archiveItems = [
   },
   {
     image: "/images/archive/9.png",
-    title: "Impact Investing (Comic)",
+    title: "Impact Investing",
     link: "https://www.linkedin.com/posts/connecting-dreams-foundation-mac-chapter_impact-investing-activity-7265090756967579648-CEe3"
   },
   {
@@ -33,17 +33,17 @@ const archiveItems = [
   },
   {
     image: "/images/archive/6.png",
-    title: "Gender Dysphoria (Comic)",
+    title: "Gender Dysphoria",
     link: "https://www.linkedin.com/posts/connecting-dreams-foundation-mac-chapter_gender-dysphoria-activity-7265089393147674627-D9Ny"
   },
   {
     image: "/images/archive/7.png",
-    title: "Carbon Footprints of Delhi (Comic)",
+    title: "Carbon Footprints of Delhi",
     link: "https://www.linkedin.com/posts/connecting-dreams-foundation-mac-chapter_carbon-footprint-of-delhi-activity-7265087641493073920-yIcT"
   },
   {
     image: "/images/archive/8.png",
-    title: "Inclusive Finance (Comic)",
+    title: "Inclusive Finance",
     link: "https://www.linkedin.com/posts/connecting-dreams-foundation-mac-chapter_inclusive-finance-activity-7265088493792432128-yhUv"
   }
 ];

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://cdfmac.com/</loc>
+    <lastmod>2025-06-20</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://cdfmac.com/about-us</loc>
+    <lastmod>2025-06-20</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://cdfmac.com/projects</loc>
+    <lastmod>2025-06-20</lastmod>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cdfmac.com/team</loc>
+    <lastmod>2025-06-20</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://cdfmac.com/contact</loc>
+    <lastmod>2025-06-20</lastmod>
+    <priority>0.75</priority>
+  </url>
+</urlset>

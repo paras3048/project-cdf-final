@@ -8,6 +8,7 @@ import Resources from './pages/Resources';
 import AboutCDF from './pages/AboutCDF';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
+import TheFoundingTeam from './pages/TheFoundingTeam';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/about-cdf" element={<AboutCDF />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/the-founding-team" element={<TheFoundingTeam />} />
           </Routes>
         </main>
         <Footer />

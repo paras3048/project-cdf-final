@@ -101,13 +101,20 @@ export default function Header() {
                 >
                   About CDF
                 </Link>
+
+                <Link 
+                  to="/about-cdf" 
+                  className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-200"
+                >
+                  About CDF
+                </Link>
                 
                 {/* About Us link */}
                 <Link 
-                  to="/about-us" 
+                  to="/the-founding-team" 
                   className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors duration-200"
                 >
-                  About Us
+                  The Founding Team
                 </Link>
               </div>
             </div>
@@ -133,6 +140,8 @@ export default function Header() {
             <Link to="/contact" className="block py-3 px-4 text-gray-800 hover:bg-gray-100 rounded-lg">Contact</Link>
             <Link to="/about-cdf" className="block py-3 px-4 text-gray-800 hover:bg-gray-100 rounded-lg">About CDF</Link>
             <Link to="/about-us" className="block py-3 px-4 text-gray-800 hover:bg-gray-100 rounded-lg">About Us</Link>
+            <Link to="/the-founding-team" className="block py-3 px-4 text-gray-800 hover:bg-gray-100 rounded-lg">The Founding Team</Link>
+
           </div>
         )}
       </nav>

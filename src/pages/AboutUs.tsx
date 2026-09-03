@@ -16,62 +16,62 @@ const teamMembers = [
     email: "mailto:medhansh318@gmail.com"
   },
   {
-    name: "Paras",
+    name: "Adarsh Mishra",
     position: "General Secretary",
-    image: "/images/team/3.jpg",
-    linkedin: "https://www.linkedin.com/in/paras-jain-02474124b",
-    email: "mailto:parasjain3048@gmail.com"
+    image: "/images/team/11.png",
+    linkedin: "https://www.linkedin.com/in/adarsh-mishra-360d/",
+    email: "mailto:adarshmishramac@gmail.com"
   },
   {
-    name: "Aizah",
+    name: "Palak Kasana",
     position: "Head of Marketing Operations",
     image: "/images/team/4.jpg",
-    linkedin: "https://www.linkedin.com/in/aizah-tabassum-689695307",
-    email: "mailto:aizahtabassum26@gmail.com"
+    linkedin: "https://www.linkedin.com/in/palak-kasana-435898275/",
+    email: "mailto:palakkasanaworks@gmail.com"
   },
   {
-    name: "Ritesh",
-    position: "Associate",
+    name: "Adaana Darjee",
+    position: "Associate - Strategy",
     image: "/images/team/5.jpg",
-    linkedin: "https://www.linkedin.com/in/ritesh-kumar-410377299",
-    email: "mailto:ritesh90428@gmail.com"
+    linkedin: "https://www.linkedin.com/in/adaana-darjee-50523931b/",
+    email: "mailto:adaanadarjee@gmail.com"
   },
   {
-    name: "Joydev",
-    position: "Senior Analyst",
+    name: "Manya Malhotra",
+    position: "Associate - Marketing",
     image: "/images/team/6.jpg",
-    linkedin: "https://www.linkedin.com/in/joydev-%E2%80%8E-a639b328a/",
-    email: "mailto:joydevrockstar@gmail.com"
+    linkedin: "https://www.linkedin.com/in/manya-malhotra-a5b0a9252/",
+    email: "mailto:manyamalhotra0706@gmail.com"
   },
   {
-    name: "Yuvraj",
-    position: "Senior Analyst",
+    name: "Krish Bansal",
+    position: "Associate - Operations",
     image: "/images/team/7.jpg",
-    linkedin: "https://www.linkedin.com/in/yuvraj-kampani-79847b295",
-    email: "mailto:yuvrajkampani16@gmail.com"
+    linkedin: "https://www.linkedin.com/in/krish-bansal-739063333/",
+    email: "mailto:bansal27krish.org@gmail.com"
   },
 
   // New members
   {
-    name: "Name",
-    position: "Position",
+    name: "Anshu Singh",
+    position: "Associate - Production",
     image: "/images/team/8.jpg",
-    linkedin: "#",
-    email: "mailto:example@gmail.com"
+    linkedin: "https://www.linkedin.com/in/anshu-singh-bb2086332/",
+    email: "mailto:anshusin089@gmail.com"
   },
   {
-    name: "Name",
-    position: "Position",
+    name: "Kushal Raj",
+    position: "Analyst",
     image: "/images/team/9.jpg",
-    linkedin: "#",
-    email: "mailto:example@gmail.com"
+    linkedin: "https://www.linkedin.com/in/kushal-r-7a9653253/",
+    email: "mailto:kushalraj.work@gmail.com"
   },
   {
-    name: "Name",
-    position: "Position",
+    name: "Amey Makkar",
+    position: "Analyst",
     image: "/images/team/10.jpg",
-    linkedin: "#",
-    email: "mailto:example@gmail.com"
+    linkedin: "https://www.linkedin.com/in/amey-makkar-8486a9346/",
+    email: "mailto:ameymakkar187@gmail.com"
   }
 ];
 

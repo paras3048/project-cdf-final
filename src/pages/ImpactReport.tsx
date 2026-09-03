@@ -2,22 +2,22 @@ import React from 'react';
 
 const resourceItems = [
   {
-    image: "/images/resources/1.jpg",
+    image: "/images/resources/1.png",
     title: "Cognitive Science Labs Database",
     link: "https://erratic-forgery-cfc.notion.site/144bc6c4752580c2a3f3d72c28f37791?v=144bc6c47525812bac73000c764b3d25&pvs=4"
   },
   {
-    image: "/images/resources/2.jpg",
+    image: "/images/resources/2.png",
     title: "Podcasts",
     link: "https://erratic-forgery-cfc.notion.site/143bc6c475258074a0fdf006515d1589?v=144bc6c475258186b1a3000cf0dc82e2&pvs=74"
   },
   {
-    image: "/images/resources/3.jpg",
+    image: "/images/resources/3.png",
     title: "Parliament of India",
     link: "https://pine-torta-f08.notion.site/1417d6434fdd808f811de1a0afcbba6c?v=1417d6434fdd818a962d000cf1f002b9&pvs=74"
   },
   {
-    image: "/images/resources/4.jpg",
+    image: "/images/resources/4.png",
     title: "Toolkit",
     link: "https://erratic-forgery-cfc.notion.site/144bc6c4752580638e60fe654621476d?v=144bc6c4752581bf9f98000c26af42a3&pvs=74"
   },

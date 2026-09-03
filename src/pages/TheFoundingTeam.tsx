@@ -1,3 +1,62 @@
+import React from 'react';
+import { Linkedin, Mail } from 'lucide-react';
+
+const teamMembers = {
+  row1: [
+    {
+      name: "Siddhant",
+      position: "President",
+      image: "/images/team/1.jpg",
+      linkedin: "https://www.linkedin.com/in/siddhant-singh-49a84a292",
+      email: "mailto:siddhantsinghw10@gmail.com"
+    },
+    {
+      name: "Pratik",
+      position: "Vice President",
+      image: "/images/team/2.jpg",
+      linkedin: "https://www.linkedin.com/in/pratik-mitra-450a69257",
+      email: "mailto:pratik.mitra256@gmail.com"
+    },
+    {
+      name: "Paras",
+      position: "General Secretary",
+      image: "/images/team/3.jpg",
+      linkedin: "https://www.linkedin.com/in/paras-jain-02474124b",
+      email: "mailto:parasjain3048@gmail.com"
+    }
+  ],
+  row2: [
+    {
+      name: "Aizah",
+      position: "Head of Marketing Operations",
+      image: "/images/team/4.jpg",
+      linkedin: "https://www.linkedin.com/in/aizah-tabassum-689695307",
+      email: "mailto:aizahtabassum26@gmail.com"
+    },
+    {
+      name: "Ritesh",
+      position: "Associate",
+      image: "/images/team/5.jpg",
+      linkedin: "https://www.linkedin.com/in/ritesh-kumar-410377299",
+      email: "mailto:ritesh90428@gmail.com"
+    },
+    {
+      name: "Joydev",
+      position: "Senior Analyst",
+      image: "/images/team/6.jpg",
+      linkedin: "https://www.linkedin.com/in/joydev-%E2%80%8E-a639b328a/",
+      email: "mailto:joydevrockstar@gmail.com"
+    },
+    {
+      name: "Yuvraj",
+      position: "Senior Analyst",
+      image: "/images/team/7.jpg",
+      linkedin: "https://www.linkedin.com/in/yuvraj-kampani-79847b295",
+      email: "mailto:yuvrajkampani16@gmail.com"
+    }
+  ]
+};
+
 export default function TheFoundingTeam() {
   return (
     <>

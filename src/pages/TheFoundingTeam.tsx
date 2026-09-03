@@ -35,13 +35,6 @@ const teamMembers = {
       email: "mailto:aizahtabassum26@gmail.com"
     },
     {
-      name: "Ritesh",
-      position: "Associate",
-      image: "/images/team/5.jpg",
-      linkedin: "https://www.linkedin.com/in/ritesh-kumar-410377299",
-      email: "mailto:ritesh90428@gmail.com"
-    },
-    {
       name: "Joydev",
       position: "Senior Analyst",
       image: "/images/team/6.jpg",
@@ -61,6 +54,13 @@ const teamMembers = {
       image: "/images/team/8.jpeg",
       linkedin: "https://www.linkedin.com/in/abhishek-kumar-maurya-998b712a6/",
       email: "mailto:mgs2abhishek@gmail.com"
+    },
+    {
+      name: "Ritesh",
+      position: "Associate",
+      image: "/images/team/5.jpg",
+      linkedin: "https://www.linkedin.com/in/ritesh-kumar-410377299",
+      email: "mailto:ritesh90428@gmail.com"
     }
   ]
 };

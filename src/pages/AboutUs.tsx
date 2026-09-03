@@ -1,406 +1,773 @@
-{/* =================================================
-    ABOUT OUR COLLEGE
-================================================= */}
+import React from 'react';
 
-<section className="mt-20 sm:mt-24 md:mt-28 px-2 sm:px-4">
+const teamMembers = [
+  {
+    name: "Yuvraj Bhardwaj",
+    position: "Co- President",
+    image: "/images/team/9.png",
+    linkedin: "https://www.linkedin.com/in/yuvrajbhardwaj27/",
+    email: "mailto:yuvrajexcelhere@gmail.com"
+  },
+  {
+    name: "Medhansh Singh",
+    position: "Co-President",
+    image: "/images/team/10.png",
+    linkedin: "https://www.linkedin.com/in/medhansh-singh-3a9842315/",
+    email: "mailto:medhansh318@gmail.com"
+  },
+  {
+    name: "Adarsh Mishra",
+    position: "General Secretary",
+    image: "/images/team/11.png",
+    linkedin: "https://www.linkedin.com/in/adarsh-mishra-360d/",
+    email: "mailto:adarshmishramac@gmail.com"
+  },
+  {
+    name: "Palak Kasana",
+    position: "Head of Marketing Operations",
+    image: "/images/team/12.jpg",
+    linkedin: "https://www.linkedin.com/in/palak-kasana-435898275/",
+    email: "mailto:palakkasanaworks@gmail.com"
+  },
+  {
+    name: "Adaana Darjee",
+    position: "Associate - Strategy",
+    image: "/images/team/13.jpeg",
+    linkedin: "https://www.linkedin.com/in/adaana-darjee-50523931b/",
+    email: "mailto:adaanadarjee@gmail.com"
+  },
+  {
+    name: "Manya Malhotra",
+    position: "Associate - Marketing",
+    image: "/images/team/14.jpeg",
+    linkedin: "https://www.linkedin.com/in/manya-malhotra-a5b0a9252/",
+    email: "mailto:manyamalhotra0706@gmail.com"
+  },
+  {
+    name: "Krish Bansal",
+    position: "Associate - Operations",
+    image: "/images/team/15.jpeg",
+    linkedin: "https://www.linkedin.com/in/krish-bansal-739063333/",
+    email: "mailto:bansal27krish.org@gmail.com"
+  },
+  {
+    name: "Anshu Singh",
+    position: "Associate - Production",
+    image: "/images/team/16.jpg",
+    linkedin: "https://www.linkedin.com/in/anshu-singh-bb2086332/",
+    email: "mailto:anshusin089@gmail.com"
+  },
+  {
+    name: "Kushal Raj",
+    position: "Analyst",
+    image: "/images/team/17.jpg",
+    linkedin: "https://www.linkedin.com/in/kushal-r-7a9653253/",
+    email: "mailto:kushalraj.work@gmail.com"
+  },
+  {
+    name: "Amey Makkar",
+    position: "Analyst",
+    image: "/images/team/18.jpg",
+    linkedin: "https://www.linkedin.com/in/amey-makkar-8486a9346/",
+    email: "mailto:ameymakkar187@gmail.com"
+  }
+];
 
-  {/* Heading */}
+export default function AboutUs() {
+  return (
+    <div className="relative w-full overflow-hidden bg-[#f7f7f5]">
 
-  <div className="text-center mb-10 sm:mb-12 md:mb-14">
+      {/* =====================================================
+          DECORATIVE BACKGROUND
+      ====================================================== */}
 
-    <h2
-      className="
-        text-3xl
-        sm:text-4xl
-        md:text-5xl
-        font-bold
-        text-gray-900
-        tracking-tight
-      "
-    >
-      About Our College
-    </h2>
+      <div className="absolute inset-0 pointer-events-none opacity-30">
+        <svg
+          className="absolute inset-0 w-full h-full"
+          viewBox="0 0 1440 1400"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            fill="none"
+            stroke="#d9c9ed"
+            strokeWidth="2"
+          >
+            <path d="M-100 100 C100 0 250 30 370 160 C490 290 590 280 720 160 C850 40 990 30 1120 150 C1250 270 1380 250 1540 120" />
+            <path d="M-100 145 C100 45 250 75 370 205 C490 335 590 325 720 205 C850 85 990 75 1120 195 C1250 315 1380 295 1540 165" />
+            <path d="M-100 190 C100 90 250 120 370 250 C490 380 590 370 720 250 C850 130 990 120 1120 240 C1250 360 1380 340 1540 210" />
 
-    <div
-      className="
-        w-16
-        sm:w-20
-        h-1
-        bg-[#5c438c]
-        rounded-full
-        mx-auto
-        mt-4
-        sm:mt-5
-      "
-    />
+            <path d="M-100 1100 C100 1000 250 1030 370 1160 C490 1290 590 1280 720 1160 C850 1040 990 1030 1120 1150 C1250 1270 1380 1250 1540 1120" />
+            <path d="M-100 1145 C100 1045 250 1075 370 1205 C490 1335 590 1325 720 1205 C850 1085 990 1075 1120 1195 C1250 1315 1380 1295 1540 1165" />
+          </g>
+        </svg>
+      </div>
 
-    <p
-      className="
-        mt-4
-        sm:mt-5
-        text-gray-600
-        text-base
-        sm:text-lg
-        leading-relaxed
-        max-w-2xl
-        mx-auto
-        px-3
-      "
-    >
-      The institution that nurtured the community, ideas,
-      and people behind CDF MAC Chapter.
-    </p>
+      {/* =====================================================
+          BLUE DECORATIVE SHAPE
+      ====================================================== */}
 
-  </div>
-
-
-  {/* =================================================
-      COLLEGE CARD
-  ================================================= */}
-
-  <div
-    className="
-      group
-      relative
-      w-full
-
-      bg-white
-      rounded-xl
-      sm:rounded-2xl
-      overflow-hidden
-
-      border
-      border-gray-100
-
-      shadow-[0_5px_20px_rgba(0,0,0,0.07)]
-
-      transition-all
-      duration-500
-      ease-out
-
-      hover:-translate-y-2
-      sm:hover:-translate-y-3
-      hover:shadow-[0_20px_45px_rgba(0,0,0,0.16)]
-    "
-  >
-
-    {/* Top Purple Accent */}
-
-    <div
-      className="
-        absolute
-        top-0
-        left-0
-        right-0
-        h-1.5
-        sm:h-2
-        bg-[#5c438c]
-        z-20
-      "
-    />
-
-
-    {/* =================================================
-        COLLEGE IMAGE
-    ================================================= */}
-
-    <div
-      className="
-        relative
-        w-full
-        h-[260px]
-        xs:h-[300px]
-        sm:h-[350px]
-        md:h-[450px]
-        overflow-hidden
-      "
-    >
-
-      <img
-        src="/images/college/1.jpg"
-        alt="Maharaja Agrasen College Campus"
+      <div
         className="
+          absolute
+          top-[-90px]
+          right-[-220px]
+          w-[360px]
+          h-[260px]
+          sm:w-[500px]
+          sm:h-[360px]
+          md:w-[650px]
+          md:h-[450px]
+          bg-[#318bc1]
+          rotate-[10deg]
+          rounded-[35%_5%_30%_10%]
+          opacity-80
+          pointer-events-none
+        "
+      />
+
+      {/* =====================================================
+          GREEN DECORATIVE SHAPE
+      ====================================================== */}
+
+      <div
+        className="
+          absolute
+          bottom-[-130px]
+          left-[-220px]
+          w-[360px]
+          h-[260px]
+          sm:w-[500px]
+          sm:h-[360px]
+          md:w-[650px]
+          md:h-[450px]
+          bg-[#8bc21f]
+          rotate-[-8deg]
+          rounded-[10%_35%_5%_30%]
+          opacity-80
+          pointer-events-none
+        "
+      />
+
+      {/* =====================================================
+          MAIN CONTENT
+      ====================================================== */}
+
+      <div
+        className="
+          relative
+          z-10
           w-full
-          h-full
-          object-cover
-
-          transition-transform
-          duration-700
-
-          group-hover:scale-105
-        "
-      />
-
-
-      {/* Image Overlay */}
-
-      <div
-        className="
-          absolute
-          inset-0
-          bg-gradient-to-t
-          from-black/65
-          via-black/15
-          to-transparent
-          opacity-70
-          group-hover:opacity-50
-          transition-opacity
-          duration-500
-        "
-      />
-
-
-      {/* College Name */}
-
-      <div
-        className="
-          absolute
-          bottom-0
-          left-0
-          right-0
-          p-5
-          sm:p-7
-          md:p-10
+          px-4
+          sm:px-6
+          md:px-8
+          pt-20
+          sm:pt-24
+          pb-20
+          sm:pb-24
         "
       >
+        <div className="max-w-7xl mx-auto">
 
-        <p
-          className="
-            text-white
-            text-xs
-            sm:text-sm
-            md:text-base
-            font-semibold
-            uppercase
-            tracking-[0.15em]
-            sm:tracking-[0.2em]
-            mb-1.5
-            sm:mb-2
-          "
-        >
-          University of Delhi
-        </p>
+          {/* =================================================
+              MEET OUR TEAM
+          ================================================= */}
 
-        <h3
-          className="
-            text-white
-            text-2xl
-            sm:text-3xl
-            md:text-4xl
-            font-bold
-            leading-tight
-          "
-        >
-          Maharaja Agrasen College
-        </h3>
+          <section className="mb-20 sm:mb-28">
 
+            {/* Heading */}
+
+            <div className="text-center mb-10 sm:mb-14">
+
+              <h1
+                className="
+                  text-3xl
+                  sm:text-4xl
+                  md:text-5xl
+                  font-bold
+                  text-gray-900
+                  tracking-tight
+                  px-2
+                "
+              >
+                Meet Our Team
+              </h1>
+
+              <div
+                className="
+                  w-16
+                  sm:w-20
+                  h-1
+                  bg-[#5c438c]
+                  rounded-full
+                  mx-auto
+                  mt-4
+                  sm:mt-5
+                "
+              />
+
+              <p
+                className="
+                  mt-4
+                  sm:mt-5
+                  text-gray-600
+                  text-base
+                  sm:text-lg
+                  leading-relaxed
+                  max-w-2xl
+                  mx-auto
+                  px-3
+                "
+              >
+                Meet the passionate individuals working together
+                to create meaningful change through CDF MAC Chapter.
+              </p>
+
+            </div>
+
+
+            {/* =================================================
+                ROW 1 — 2 LARGE CARDS
+            ================================================= */}
+
+            <div
+              className="
+                grid
+                grid-cols-1
+                sm:grid-cols-2
+                gap-6
+                sm:gap-7
+                max-w-4xl
+                mx-auto
+                mb-6
+                sm:mb-7
+              "
+            >
+              {teamMembers.slice(0, 2).map((member, index) => (
+                <TeamCard
+                  key={index}
+                  member={member}
+                  size="large"
+                />
+              ))}
+            </div>
+
+
+            {/* =================================================
+                ROW 2 — 3 MEDIUM CARDS
+            ================================================= */}
+
+            <div
+              className="
+                grid
+                grid-cols-1
+                sm:grid-cols-2
+                lg:grid-cols-3
+                gap-6
+                sm:gap-7
+                max-w-5xl
+                mx-auto
+                mb-6
+                sm:mb-7
+              "
+            >
+              {teamMembers.slice(2, 5).map((member, index) => (
+                <TeamCard
+                  key={index}
+                  member={member}
+                  size="medium"
+                />
+              ))}
+            </div>
+
+
+            {/* =================================================
+                ROW 3 — 5 SMALL CARDS
+            ================================================= */}
+
+            <div
+              className="
+                grid
+                grid-cols-1
+                sm:grid-cols-2
+                md:grid-cols-3
+                lg:grid-cols-5
+                gap-5
+                max-w-6xl
+                mx-auto
+              "
+            >
+              {teamMembers.slice(5, 10).map((member, index) => (
+                <TeamCard
+                  key={index}
+                  member={member}
+                  size="small"
+                />
+              ))}
+            </div>
+
+          </section>
+
+
+          {/* =================================================
+              ABOUT OUR COLLEGE
+          ================================================= */}
+
+          <section>
+
+            {/* Heading */}
+
+            <div className="text-center mb-8 sm:mb-12">
+
+              <h2
+                className="
+                  text-3xl
+                  sm:text-4xl
+                  md:text-5xl
+                  font-bold
+                  text-gray-900
+                "
+              >
+                About Our College
+              </h2>
+
+              <div
+                className="
+                  w-16
+                  sm:w-20
+                  h-1
+                  bg-[#5c438c]
+                  rounded-full
+                  mx-auto
+                  mt-4
+                  sm:mt-5
+                "
+              />
+
+            </div>
+
+
+            {/* College Card */}
+
+            <div
+              className="
+                w-full
+                bg-white
+                rounded-2xl
+                sm:rounded-3xl
+                overflow-hidden
+                shadow-[0_10px_40px_rgba(0,0,0,0.08)]
+                border
+                border-gray-100
+                flex
+                flex-col
+                lg:flex-row
+                transition-all
+                duration-500
+                hover:shadow-[0_20px_60px_rgba(0,0,0,0.13)]
+              "
+            >
+
+              {/* College Image */}
+
+              <div
+                className="
+                  relative
+                  w-full
+                  lg:w-1/2
+                  h-[280px]
+                  sm:h-[350px]
+                  lg:h-auto
+                  lg:min-h-[600px]
+                  overflow-hidden
+                "
+              >
+
+                <img
+                  src="/images/college/1.jpg"
+                  alt="Maharaja Agrasen College Campus"
+                  className="
+                    absolute
+                    inset-0
+                    w-full
+                    h-full
+                    object-cover
+                    transition-transform
+                    duration-700
+                    hover:scale-105
+                  "
+                />
+
+                <div
+                  className="
+                    absolute
+                    inset-0
+                    bg-gradient-to-t
+                    sm:bg-gradient-to-r
+                    from-black/25
+                    to-transparent
+                  "
+                />
+
+              </div>
+
+
+              {/* College Content */}
+
+              <div
+                className="
+                  w-full
+                  lg:w-1/2
+                  flex
+                  flex-col
+                  justify-center
+                  px-5
+                  sm:px-8
+                  md:px-12
+                  lg:px-16
+                  py-9
+                  sm:py-12
+                  lg:py-16
+                "
+              >
+
+                <span
+                  className="
+                    text-xs
+                    sm:text-sm
+                    font-semibold
+                    uppercase
+                    tracking-[0.15em]
+                    sm:tracking-[0.2em]
+                    text-[#5c438c]
+                    mb-3
+                    sm:mb-4
+                  "
+                >
+                  Maharaja Agrasen College
+                </span>
+
+
+                <h3
+                  className="
+                    text-2xl
+                    sm:text-3xl
+                    md:text-4xl
+                    font-bold
+                    text-gray-900
+                    leading-tight
+                    mb-5
+                    sm:mb-7
+                  "
+                >
+                  A Place to Learn,
+                  <br className="hidden sm:block" />
+                  <span className="sm:hidden"> </span>
+                  Grow & Create Impact
+                </h3>
+
+
+                <div className="space-y-4 sm:space-y-5">
+
+                  <p
+                    className="
+                      text-gray-600
+                      text-base
+                      sm:text-lg
+                      leading-relaxed
+                    "
+                  >
+                    Maharaja Agrasen College, established in 1994,
+                    is a constituent college of the University of
+                    Delhi. The college is committed to providing
+                    quality education and fostering academic
+                    excellence.
+                  </p>
+
+
+                  <p
+                    className="
+                      text-gray-600
+                      text-base
+                      sm:text-lg
+                      leading-relaxed
+                    "
+                  >
+                    Our institution takes pride in its diverse
+                    student body and dedicated faculty members who
+                    work together to create an enriching learning
+                    environment.
+                  </p>
+
+
+                  <p
+                    className="
+                      text-gray-600
+                      text-base
+                      sm:text-lg
+                      leading-relaxed
+                    "
+                  >
+                    The college offers various undergraduate
+                    programs in Science, Commerce, and Humanities.
+                    We focus on holistic development through
+                    academic pursuits, extra-curricular activities,
+                    and community engagement initiatives.
+                  </p>
+
+                </div>
+
+
+                {/* Decorative Line */}
+
+                <div className="mt-7 sm:mt-8 flex items-center gap-2 sm:gap-3">
+
+                  <div className="w-8 sm:w-12 h-1 rounded-full bg-[#318bc1]" />
+
+                  <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-[#8bc21f]" />
+
+                  <div className="w-14 sm:w-20 h-1 rounded-full bg-[#5c438c]" />
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
       </div>
 
     </div>
+  );
+}
 
 
-    {/* =================================================
-        CONTENT
-    ================================================= */}
+/* ============================================================
+   TEAM CARD COMPONENT
+============================================================ */
 
+function TeamCard({
+  member,
+  size
+}: {
+  member: {
+    name: string;
+    position: string;
+    image: string;
+    linkedin: string;
+    email: string;
+  };
+  size: "large" | "medium" | "small";
+}) {
+
+  /*
+   * Responsive card sizing:
+   *
+   * Mobile:
+   *   - Always full width
+   *
+   * Tablet:
+   *   - Cards naturally fit inside grid
+   *
+   * Desktop:
+   *   - Different image heights preserve
+   *     the visual hierarchy of each row.
+   */
+
+  const imageHeight =
+    size === "large"
+      ? "h-[260px] sm:h-[280px]"
+      : size === "medium"
+        ? "h-[230px] sm:h-[240px]"
+        : "h-[220px] sm:h-[190px]";
+
+
+  return (
     <div
       className="
-        px-5
-        py-6
-        sm:px-7
-        sm:py-8
-        md:px-10
-        md:py-10
+        group
+        w-full
+        min-w-0
+        bg-white
+        rounded-2xl
+        overflow-hidden
+        border
+        border-gray-100
+        shadow-[0_5px_20px_rgba(0,0,0,0.07)]
+        transition-all
+        duration-500
+        ease-out
+
+        hover:-translate-y-2
+        sm:hover:-translate-y-3
+
+        hover:scale-[1.015]
+        sm:hover:scale-[1.025]
+
+        hover:shadow-[0_20px_45px_rgba(0,0,0,0.16)]
       "
     >
 
-      <div className="max-w-5xl mx-auto">
+      {/* =================================================
+          IMAGE
+      ================================================= */}
 
-        {/* Small Heading */}
+      <div
+        className={`
+          ${imageHeight}
+          w-full
+          overflow-hidden
+          relative
+          bg-gray-100
+        `}
+      >
+
+        <img
+          src={member.image}
+          alt={member.name}
+          loading="lazy"
+          className="
+            w-full
+            h-full
+            object-cover
+            transition-transform
+            duration-700
+            group-hover:scale-105
+          "
+        />
+
+        {/* Hover Overlay */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-black/25
+            to-transparent
+            opacity-0
+            group-hover:opacity-100
+            transition-opacity
+            duration-500
+          "
+        />
+
+      </div>
+
+
+      {/* =================================================
+          DETAILS
+      ================================================= */}
+
+      <div
+        className="
+          text-center
+          px-4
+          sm:px-5
+          py-5
+          sm:py-6
+        "
+      >
+
+        <h3
+          className="
+            text-lg
+            sm:text-xl
+            font-bold
+            text-gray-900
+            mb-1.5
+            break-words
+          "
+        >
+          {member.name}
+        </h3>
+
+
+        <p
+          className="
+            text-gray-600
+            text-sm
+            leading-snug
+            min-h-[38px]
+            flex
+            items-center
+            justify-center
+            break-words
+          "
+        >
+          {member.position}
+        </p>
+
+
+        {/* =================================================
+            LINKS
+        ================================================= */}
 
         <div
           className="
             flex
+            justify-center
             items-center
-            gap-2
-            sm:gap-3
-            mb-5
-            sm:mb-6
-          "
-        >
-
-          <span
-            className="
-              w-7
-              sm:w-10
-              h-1
-              rounded-full
-              bg-[#318bc1]
-              flex-shrink-0
-            "
-          />
-
-          <span
-            className="
-              w-2.5
-              sm:w-3
-              h-2.5
-              sm:h-3
-              rounded-full
-              bg-[#8bc21f]
-              flex-shrink-0
-            "
-          />
-
-          <span
-            className="
-              text-xs
-              sm:text-sm
-              font-semibold
-              uppercase
-              tracking-[0.12em]
-              sm:tracking-[0.18em]
-              text-[#5c438c]
-            "
-          >
-            About the Institution
-          </span>
-
-        </div>
-
-
-        {/* =================================================
-            TEXT CONTENT
-        ================================================= */}
-
-        <div
-          className="
-            grid
-            grid-cols-1
-            md:grid-cols-2
-            gap-5
-            md:gap-7
-          "
-        >
-
-          <p
-            className="
-              text-gray-600
-              text-base
-              sm:text-lg
-              leading-relaxed
-            "
-          >
-            Maharaja Agrasen College, established in 1994,
-            is a constituent college of the University of
-            Delhi. The college is committed to providing
-            quality education and fostering academic
-            excellence.
-          </p>
-
-
-          <p
-            className="
-              text-gray-600
-              text-base
-              sm:text-lg
-              leading-relaxed
-            "
-          >
-            Our institution takes pride in its diverse
-            student body and dedicated faculty members who
-            work together to create an enriching learning
-            environment.
-          </p>
-
-        </div>
-
-
-        {/* =================================================
-            THIRD PARAGRAPH
-        ================================================= */}
-
-        <div
-          className="
-            mt-5
-            sm:mt-7
-            pt-5
-            sm:pt-7
+            gap-3
+            mt-4
+            pt-3
             border-t
             border-gray-100
           "
         >
 
-          <p
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
             className="
+              text-sm
+              font-medium
               text-gray-600
-              text-base
-              sm:text-lg
-              leading-relaxed
+              hover:text-[#5c438c]
+              underline
+              underline-offset-4
+              decoration-gray-300
+              hover:decoration-[#5c438c]
+              transition-all
+              duration-300
+              whitespace-nowrap
             "
           >
-            The college offers various undergraduate programs
-            in Science, Commerce, and Humanities. We focus on
-            holistic development through academic pursuits,
-            extra-curricular activities, and community
-            engagement initiatives.
-          </p>
-
-        </div>
+            LinkedIn
+          </a>
 
 
-        {/* =================================================
-            BOTTOM DECORATION
-        ================================================= */}
+          <span className="text-gray-300">
+            |
+          </span>
 
-        <div
-          className="
-            mt-6
-            sm:mt-8
-            flex
-            items-center
-            gap-2
-            sm:gap-3
-          "
-        >
 
-          <div
+          <a
+            href={member.email}
             className="
-              w-8
-              sm:w-12
-              h-1
-              rounded-full
-              bg-[#318bc1]
+              text-sm
+              font-medium
+              text-gray-600
+              hover:text-[#5c438c]
+              underline
+              underline-offset-4
+              decoration-gray-300
+              hover:decoration-[#5c438c]
+              transition-all
+              duration-300
+              whitespace-nowrap
             "
-          />
-
-          <div
-            className="
-              w-2.5
-              sm:w-3
-              h-2.5
-              sm:h-3
-              rounded-full
-              bg-[#8bc21f]
-            "
-          />
-
-          <div
-            className="
-              w-12
-              sm:w-20
-              h-1
-              rounded-full
-              bg-[#5c438c]
-            "
-          />
+          >
+            Mail
+          </a>
 
         </div>
 
       </div>
 
     </div>
-
-  </div>
-
-</section>
+  );
+}

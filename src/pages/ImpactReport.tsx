@@ -33,7 +33,7 @@ const resourceItems = [
   }
 ];
 
-export default function Podcast() {
+export default function ImpactReport() {
   return (
     <div className="container mx-auto px-8 py-16 pt-24">
       <div className="max-w-7xl mx-auto">

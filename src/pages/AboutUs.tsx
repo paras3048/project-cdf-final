@@ -1,9 +1,16 @@
 import React from 'react';
+import {
+  Linkedin,
+  Mail,
+  ArrowUpRight,
+  GraduationCap,
+  Users,
+} from 'lucide-react';
 
 const teamMembers = [
   {
     name: "Yuvraj Bhardwaj",
-    position: "Co- President",
+    position: "Co-President",
     image: "/images/team/9.png",
     linkedin: "https://www.linkedin.com/in/yuvrajbhardwaj27/",
     email: "mailto:yuvrajexcelhere@gmail.com"
@@ -75,148 +82,215 @@ const teamMembers = [
 
 export default function AboutUs() {
   return (
-    <div className="relative w-full overflow-hidden bg-[#f7f7f5]">
+    <div className="relative w-full overflow-hidden bg-[#f7f8f5]">
 
       {/* =====================================================
-          DECORATIVE BACKGROUND
-      ====================================================== */}
+          BACKGROUND DECORATIONS
+      ===================================================== */}
 
-      <div className="absolute inset-0 pointer-events-none opacity-30">
+      {/* Blue top-right shape */}
+      <div
+        className="
+          absolute
+          top-[-120px]
+          right-[-200px]
+          w-[460px]
+          h-[330px]
+          sm:w-[600px]
+          sm:h-[400px]
+          md:w-[700px]
+          md:h-[460px]
+          bg-[#318BC1]/12
+          rotate-[10deg]
+          rounded-[40%_5%_35%_10%]
+          pointer-events-none
+        "
+      />
+
+      {/* Green bottom-left shape */}
+      <div
+        className="
+          absolute
+          bottom-[-180px]
+          left-[-220px]
+          w-[500px]
+          h-[350px]
+          sm:w-[650px]
+          sm:h-[430px]
+          md:w-[750px]
+          md:h-[480px]
+          bg-[#8BC21F]/14
+          rotate-[-8deg]
+          rounded-[10%_40%_5%_35%]
+          pointer-events-none
+        "
+      />
+
+      {/* Soft green glow */}
+      <div
+        className="
+          absolute
+          top-[35%]
+          left-[5%]
+          w-[300px]
+          h-[250px]
+          rounded-full
+          bg-[#8BC21F]/7
+          blur-3xl
+          pointer-events-none
+        "
+      />
+
+      {/* Soft blue glow */}
+      <div
+        className="
+          absolute
+          top-[55%]
+          right-[0]
+          w-[300px]
+          h-[240px]
+          rounded-full
+          bg-[#318BC1]/6
+          blur-3xl
+          pointer-events-none
+        "
+      />
+
+      {/* =====================================================
+          CONTOUR LINES
+      ===================================================== */}
+
+      <div className="absolute inset-0 pointer-events-none opacity-35">
+
         <svg
           className="absolute inset-0 w-full h-full"
-          viewBox="0 0 1440 1400"
+          viewBox="0 0 1440 1600"
           preserveAspectRatio="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <g
             fill="none"
-            stroke="#d9c9ed"
+            stroke="#b8d5e5"
             strokeWidth="2"
           >
             <path d="M-100 100 C100 0 250 30 370 160 C490 290 590 280 720 160 C850 40 990 30 1120 150 C1250 270 1380 250 1540 120" />
+
             <path d="M-100 145 C100 45 250 75 370 205 C490 335 590 325 720 205 C850 85 990 75 1120 195 C1250 315 1380 295 1540 165" />
+
             <path d="M-100 190 C100 90 250 120 370 250 C490 380 590 370 720 250 C850 130 990 120 1120 240 C1250 360 1380 340 1540 210" />
 
-            <path d="M-100 1100 C100 1000 250 1030 370 1160 C490 1290 590 1280 720 1160 C850 1040 990 1030 1120 1150 C1250 1270 1380 1250 1540 1120" />
-            <path d="M-100 1145 C100 1045 250 1075 370 1205 C490 1335 590 1325 720 1205 C850 1085 990 1075 1120 1195 C1250 1315 1380 1295 1540 1165" />
+            <path d="M-100 1250 C100 1150 250 1180 370 1310 C490 1440 590 1430 720 1310 C850 1190 990 1180 1120 1300 C1250 1420 1380 1400 1540 1270" />
+
+            <path d="M-100 1295 C100 1195 250 1225 370 1355 C490 1485 590 1475 720 1355 C850 1235 990 1225 1120 1345 C1250 1465 1380 1445 1540 1315" />
           </g>
         </svg>
+
       </div>
 
       {/* =====================================================
-          BLUE DECORATIVE SHAPE
-      ====================================================== */}
+          CONTENT
+      ===================================================== */}
 
-      <div
-        className="
-          absolute
-          top-[-90px]
-          right-[-220px]
-          w-[360px]
-          h-[260px]
-          sm:w-[500px]
-          sm:h-[360px]
-          md:w-[650px]
-          md:h-[450px]
-          bg-[#318bc1]
-          rotate-[10deg]
-          rounded-[35%_5%_30%_10%]
-          opacity-80
-          pointer-events-none
-        "
-      />
-
-      {/* =====================================================
-          GREEN DECORATIVE SHAPE
-      ====================================================== */}
-
-      <div
-        className="
-          absolute
-          bottom-[-130px]
-          left-[-220px]
-          w-[360px]
-          h-[260px]
-          sm:w-[500px]
-          sm:h-[360px]
-          md:w-[650px]
-          md:h-[450px]
-          bg-[#8bc21f]
-          rotate-[-8deg]
-          rounded-[10%_35%_5%_30%]
-          opacity-80
-          pointer-events-none
-        "
-      />
-
-      {/* =====================================================
-          MAIN CONTENT
-      ====================================================== */}
-
-      <div
+      <main
         className="
           relative
           z-10
           w-full
           px-4
           sm:px-6
-          md:px-8
-          pt-20
-          sm:pt-24
+          lg:px-8
+          pt-28
+          sm:pt-32
           pb-20
           sm:pb-24
         "
       >
+
         <div className="max-w-7xl mx-auto">
 
           {/* =================================================
-              MEET OUR TEAM
+              TEAM HEADER
           ================================================= */}
 
-          <section className="mb-20 sm:mb-28">
+          <section className="mb-16 sm:mb-24">
 
-            {/* Heading */}
+            <div className="text-center mb-12 sm:mb-16">
 
-            <div className="text-center mb-10 sm:mb-14">
+              {/* Small badge */}
+
+              <div
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  px-4
+                  py-2
+                  rounded-full
+                  bg-white/75
+                  backdrop-blur-xl
+                  border
+                  border-white
+                  shadow-sm
+                  mb-5
+                "
+              >
+                <Users className="w-4 h-4 text-[#6f9900]" />
+
+                <span
+                  className="
+                    text-xs
+                    sm:text-sm
+                    font-semibold
+                    tracking-wide
+                    text-[#6f9900]
+                  "
+                >
+                  THE PEOPLE BEHIND CDF MAC
+                </span>
+              </div>
 
               <h1
                 className="
                   text-3xl
                   sm:text-4xl
                   md:text-5xl
+                  lg:text-6xl
                   font-bold
-                  text-gray-900
                   tracking-tight
-                  px-2
+                  text-[#263238]
                 "
               >
                 Meet Our Team
               </h1>
 
+              {/* Accent */}
+
               <div
                 className="
-                  w-16
-                  sm:w-20
-                  h-1
-                  bg-[#5c438c]
-                  rounded-full
-                  mx-auto
-                  mt-4
-                  sm:mt-5
+                  flex
+                  justify-center
+                  items-center
+                  gap-2
+                  mt-5
                 "
-              />
+              >
+                <div className="w-8 sm:w-12 h-1 rounded-full bg-[#318BC1]" />
+
+                <div className="w-3 h-3 rounded-full bg-[#8BC21F]" />
+
+                <div className="w-12 sm:w-16 h-1 rounded-full bg-[#8BC21F]" />
+              </div>
 
               <p
                 className="
-                  mt-4
-                  sm:mt-5
-                  text-gray-600
-                  text-base
-                  sm:text-lg
-                  leading-relaxed
+                  mt-6
                   max-w-2xl
                   mx-auto
-                  px-3
+                  text-sm
+                  sm:text-base
+                  md:text-lg
+                  leading-7
+                  text-gray-600
                 "
               >
                 Meet the passionate individuals working together
@@ -225,9 +299,8 @@ export default function AboutUs() {
 
             </div>
 
-
             {/* =================================================
-                ROW 1 — 2 LARGE CARDS
+                ROW 1 — LEADERSHIP
             ================================================= */}
 
             <div
@@ -236,25 +309,25 @@ export default function AboutUs() {
                 grid-cols-1
                 sm:grid-cols-2
                 gap-6
-                sm:gap-7
+                lg:gap-8
                 max-w-4xl
                 mx-auto
                 mb-6
-                sm:mb-7
+                lg:mb-8
               "
             >
               {teamMembers.slice(0, 2).map((member, index) => (
                 <TeamCard
-                  key={index}
+                  key={member.name}
                   member={member}
-                  size="large"
+                  variant="large"
+                  index={index}
                 />
               ))}
             </div>
 
-
             {/* =================================================
-                ROW 2 — 3 MEDIUM CARDS
+                ROW 2
             ================================================= */}
 
             <div
@@ -264,25 +337,25 @@ export default function AboutUs() {
                 sm:grid-cols-2
                 lg:grid-cols-3
                 gap-6
-                sm:gap-7
+                lg:gap-7
                 max-w-5xl
                 mx-auto
                 mb-6
-                sm:mb-7
+                lg:mb-8
               "
             >
               {teamMembers.slice(2, 5).map((member, index) => (
                 <TeamCard
-                  key={index}
+                  key={member.name}
                   member={member}
-                  size="medium"
+                  variant="medium"
+                  index={index + 2}
                 />
               ))}
             </div>
 
-
             {/* =================================================
-                ROW 3 — 5 SMALL CARDS
+                ROW 3
             ================================================= */}
 
             <div
@@ -299,25 +372,56 @@ export default function AboutUs() {
             >
               {teamMembers.slice(5, 10).map((member, index) => (
                 <TeamCard
-                  key={index}
+                  key={member.name}
                   member={member}
-                  size="small"
+                  variant="small"
+                  index={index + 5}
                 />
               ))}
             </div>
 
           </section>
 
-
           {/* =================================================
-              ABOUT OUR COLLEGE
+              ABOUT COLLEGE
           ================================================= */}
 
           <section>
 
             {/* Heading */}
 
-            <div className="text-center mb-8 sm:mb-12">
+            <div className="text-center mb-10 sm:mb-12">
+
+              <div
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  px-4
+                  py-2
+                  rounded-full
+                  bg-white/75
+                  backdrop-blur-xl
+                  border
+                  border-white
+                  shadow-sm
+                  mb-5
+                "
+              >
+                <GraduationCap className="w-4 h-4 text-[#318BC1]" />
+
+                <span
+                  className="
+                    text-xs
+                    sm:text-sm
+                    font-semibold
+                    tracking-wide
+                    text-[#318BC1]
+                  "
+                >
+                  OUR INSTITUTION
+                </span>
+              </div>
 
               <h2
                 className="
@@ -325,7 +429,7 @@ export default function AboutUs() {
                   sm:text-4xl
                   md:text-5xl
                   font-bold
-                  text-gray-900
+                  text-[#263238]
                 "
               >
                 About Our College
@@ -333,200 +437,265 @@ export default function AboutUs() {
 
               <div
                 className="
-                  w-16
-                  sm:w-20
-                  h-1
-                  bg-[#5c438c]
-                  rounded-full
-                  mx-auto
-                  mt-4
-                  sm:mt-5
+                  flex
+                  justify-center
+                  items-center
+                  gap-2
+                  mt-5
                 "
-              />
+              >
+                <div className="w-8 sm:w-12 h-1 rounded-full bg-[#318BC1]" />
+
+                <div className="w-3 h-3 rounded-full bg-[#8BC21F]" />
+
+                <div className="w-12 sm:w-16 h-1 rounded-full bg-[#8BC21F]" />
+              </div>
 
             </div>
 
-
-            {/* College Card */}
+            {/* =================================================
+                COLLEGE CARD
+            ================================================= */}
 
             <div
               className="
+                group
+                relative
                 w-full
-                bg-white
-                rounded-2xl
-                sm:rounded-3xl
                 overflow-hidden
-                shadow-[0_10px_40px_rgba(0,0,0,0.08)]
+                rounded-3xl
+                bg-white/80
+                backdrop-blur-xl
                 border
-                border-gray-100
-                flex
-                flex-col
-                lg:flex-row
+                border-white
+                shadow-[0_15px_50px_rgba(0,0,0,0.08)]
                 transition-all
                 duration-500
-                hover:shadow-[0_20px_60px_rgba(0,0,0,0.13)]
+                hover:-translate-y-1
+                hover:shadow-[0_25px_70px_rgba(0,0,0,0.13)]
               "
             >
 
-              {/* College Image */}
+              {/* Top accent */}
 
               <div
                 className="
-                  relative
-                  w-full
-                  lg:w-1/2
-                  h-[280px]
-                  sm:h-[350px]
-                  lg:h-auto
-                  lg:min-h-[600px]
-                  overflow-hidden
+                  absolute
+                  top-0
+                  left-0
+                  right-0
+                  h-1
+                  z-20
+                  bg-gradient-to-r
+                  from-[#318BC1]
+                  via-[#8BC21F]
+                  to-[#8BC21F]
+                "
+              />
+
+              <div
+                className="
+                  flex
+                  flex-col
+                  lg:flex-row
+                  min-h-[600px]
                 "
               >
 
-                <img
-                  src="/images/college/1.jpg"
-                  alt="Maharaja Agrasen College Campus"
-                  className="
-                    absolute
-                    inset-0
-                    w-full
-                    h-full
-                    object-cover
-                    transition-transform
-                    duration-700
-                    hover:scale-105
-                  "
-                />
+                {/* =================================================
+                    COLLEGE IMAGE
+                ================================================= */}
 
                 <div
                   className="
-                    absolute
-                    inset-0
-                    bg-gradient-to-t
-                    sm:bg-gradient-to-r
-                    from-black/25
-                    to-transparent
-                  "
-                />
-
-              </div>
-
-
-              {/* College Content */}
-
-              <div
-                className="
-                  w-full
-                  lg:w-1/2
-                  flex
-                  flex-col
-                  justify-center
-                  px-5
-                  sm:px-8
-                  md:px-12
-                  lg:px-16
-                  py-9
-                  sm:py-12
-                  lg:py-16
-                "
-              >
-
-                <span
-                  className="
-                    text-xs
-                    sm:text-sm
-                    font-semibold
-                    uppercase
-                    tracking-[0.15em]
-                    sm:tracking-[0.2em]
-                    text-[#5c438c]
-                    mb-3
-                    sm:mb-4
+                    relative
+                    w-full
+                    lg:w-1/2
+                    min-h-[320px]
+                    sm:min-h-[400px]
+                    lg:min-h-[600px]
+                    overflow-hidden
                   "
                 >
-                  Maharaja Agrasen College
-                </span>
 
-
-                <h3
-                  className="
-                    text-2xl
-                    sm:text-3xl
-                    md:text-4xl
-                    font-bold
-                    text-gray-900
-                    leading-tight
-                    mb-5
-                    sm:mb-7
-                  "
-                >
-                  A Place to Learn,
-                  <br className="hidden sm:block" />
-                  <span className="sm:hidden"> </span>
-                  Grow & Create Impact
-                </h3>
-
-
-                <div className="space-y-4 sm:space-y-5">
-
-                  <p
+                  <img
+                    src="/images/college/1.jpg"
+                    alt="Maharaja Agrasen College Campus"
                     className="
-                      text-gray-600
-                      text-base
-                      sm:text-lg
-                      leading-relaxed
+                      absolute
+                      inset-0
+                      w-full
+                      h-full
+                      object-cover
+                      transition-transform
+                      duration-700
+                      group-hover:scale-105
+                    "
+                  />
+
+                  {/* Overlay */}
+
+                  <div
+                    className="
+                      absolute
+                      inset-0
+                      bg-gradient-to-t
+                      from-black/55
+                      via-black/10
+                      to-transparent
+                    "
+                  />
+
+                  {/* Image badge */}
+
+                  <div
+                    className="
+                      absolute
+                      left-5
+                      bottom-5
+                      sm:left-7
+                      sm:bottom-7
+                      inline-flex
+                      items-center
+                      gap-2
+                      px-4
+                      py-2
+                      rounded-full
+                      bg-white/90
+                      backdrop-blur-md
+                      shadow-lg
                     "
                   >
-                    Maharaja Agrasen College, established in 1994,
-                    is a constituent college of the University of
-                    Delhi. The college is committed to providing
-                    quality education and fostering academic
-                    excellence.
-                  </p>
 
+                    <span
+                      className="
+                        w-2.5
+                        h-2.5
+                        rounded-full
+                        bg-[#8BC21F]
+                      "
+                    />
 
-                  <p
-                    className="
-                      text-gray-600
-                      text-base
-                      sm:text-lg
-                      leading-relaxed
-                    "
-                  >
-                    Our institution takes pride in its diverse
-                    student body and dedicated faculty members who
-                    work together to create an enriching learning
-                    environment.
-                  </p>
+                    <span
+                      className="
+                        text-xs
+                        sm:text-sm
+                        font-semibold
+                        text-[#263238]
+                      "
+                    >
+                      University of Delhi
+                    </span>
 
-
-                  <p
-                    className="
-                      text-gray-600
-                      text-base
-                      sm:text-lg
-                      leading-relaxed
-                    "
-                  >
-                    The college offers various undergraduate
-                    programs in Science, Commerce, and Humanities.
-                    We focus on holistic development through
-                    academic pursuits, extra-curricular activities,
-                    and community engagement initiatives.
-                  </p>
+                  </div>
 
                 </div>
 
+                {/* =================================================
+                    COLLEGE CONTENT
+                ================================================= */}
 
-                {/* Decorative Line */}
+                <div
+                  className="
+                    w-full
+                    lg:w-1/2
+                    flex
+                    flex-col
+                    justify-center
+                    px-6
+                    sm:px-8
+                    md:px-12
+                    lg:px-14
+                    xl:px-16
+                    py-10
+                    sm:py-12
+                  "
+                >
 
-                <div className="mt-7 sm:mt-8 flex items-center gap-2 sm:gap-3">
+                  <span
+                    className="
+                      inline-flex
+                      items-center
+                      self-start
+                      gap-2
+                      text-xs
+                      sm:text-sm
+                      font-semibold
+                      uppercase
+                      tracking-[0.15em]
+                      text-[#6f9900]
+                      mb-4
+                    "
+                  >
+                    <span className="w-2 h-2 rounded-full bg-[#8BC21F]" />
 
-                  <div className="w-8 sm:w-12 h-1 rounded-full bg-[#318bc1]" />
+                    Maharaja Agrasen College
+                  </span>
 
-                  <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-[#8bc21f]" />
+                  <h3
+                    className="
+                      text-2xl
+                      sm:text-3xl
+                      md:text-4xl
+                      font-bold
+                      text-[#263238]
+                      leading-tight
+                      mb-7
+                    "
+                  >
+                    A Place to Learn,
+                    <span className="block text-[#6f9900]">
+                      Grow & Create Impact
+                    </span>
+                  </h3>
 
-                  <div className="w-14 sm:w-20 h-1 rounded-full bg-[#5c438c]" />
+                  <div
+                    className="
+                      space-y-5
+                      text-sm
+                      sm:text-base
+                      md:text-lg
+                      leading-7
+                      text-gray-600
+                    "
+                  >
+
+                    <p>
+                      Maharaja Agrasen College, established in 1994,
+                      is a constituent college of the University of
+                      Delhi. The college is committed to providing
+                      quality education and fostering academic
+                      excellence.
+                    </p>
+
+                    <p>
+                      Our institution takes pride in its diverse
+                      student body and dedicated faculty members who
+                      work together to create an enriching learning
+                      environment.
+                    </p>
+
+                    <p>
+                      The college offers various undergraduate
+                      programs in Science, Commerce, and Humanities.
+                      We focus on holistic development through
+                      academic pursuits, extra-curricular activities,
+                      and community engagement initiatives.
+                    </p>
+
+                  </div>
+
+                  {/* Decorative line */}
+
+                  <div className="mt-8 flex items-center gap-3">
+
+                    <div className="w-10 sm:w-12 h-1 rounded-full bg-[#318BC1]" />
+
+                    <div className="w-3 h-3 rounded-full bg-[#8BC21F]" />
+
+                    <div className="w-14 sm:w-20 h-1 rounded-full bg-[#8BC21F]" />
+
+                  </div>
 
                 </div>
 
@@ -536,21 +705,45 @@ export default function AboutUs() {
 
           </section>
 
-        </div>
-      </div>
+          {/* =================================================
+              BOTTOM DECORATION
+          ================================================= */}
 
+          <div
+            className="
+              flex
+              justify-center
+              items-center
+              gap-2
+              mt-14
+              sm:mt-16
+            "
+          >
+
+            <div className="w-8 sm:w-12 h-1 rounded-full bg-[#318BC1]" />
+
+            <div className="w-3 h-3 rounded-full bg-[#8BC21F]" />
+
+            <div className="w-14 sm:w-20 h-1 rounded-full bg-[#8BC21F]" />
+
+          </div>
+
+        </div>
+
+      </main>
     </div>
   );
 }
 
 
 /* ============================================================
-   TEAM CARD COMPONENT
+   TEAM CARD
 ============================================================ */
 
 function TeamCard({
   member,
-  size
+  variant,
+  index,
 }: {
   member: {
     name: string;
@@ -559,67 +752,69 @@ function TeamCard({
     linkedin: string;
     email: string;
   };
-  size: "large" | "medium" | "small";
+  variant: "large" | "medium" | "small";
+  index: number;
 }) {
 
-  /*
-   * Responsive card sizing:
-   *
-   * Mobile:
-   *   - Always full width
-   *
-   * Tablet:
-   *   - Cards naturally fit inside grid
-   *
-   * Desktop:
-   *   - Different image heights preserve
-   *     the visual hierarchy of each row.
-   */
-
   const imageHeight =
-    size === "large"
-      ? "h-[260px] sm:h-[280px]"
-      : size === "medium"
-        ? "h-[230px] sm:h-[240px]"
-        : "h-[220px] sm:h-[190px]";
-
+    variant === "large"
+      ? "h-[330px] sm:h-[360px]"
+      : variant === "medium"
+        ? "h-[290px] sm:h-[310px]"
+        : "h-[270px] sm:h-[290px]";
 
   return (
-    <div
+    <article
       className="
         group
+        relative
         w-full
         min-w-0
-        bg-white
-        rounded-2xl
         overflow-hidden
+        rounded-3xl
+        bg-white/85
+        backdrop-blur-xl
         border
-        border-gray-100
-        shadow-[0_5px_20px_rgba(0,0,0,0.07)]
+        border-white
+        shadow-[0_8px_30px_rgba(0,0,0,0.07)]
         transition-all
         duration-500
         ease-out
-
         hover:-translate-y-2
-        sm:hover:-translate-y-3
-
-        hover:scale-[1.015]
-        sm:hover:scale-[1.025]
-
-        hover:shadow-[0_20px_45px_rgba(0,0,0,0.16)]
+        hover:shadow-[0_22px_55px_rgba(0,0,0,0.13)]
       "
     >
 
-      {/* =================================================
+      {/* ======================================================
+          CARD ACCENT
+      ====================================================== */}
+
+      <div
+        className="
+          absolute
+          top-0
+          left-0
+          right-0
+          h-1
+          z-20
+          bg-gradient-to-r
+          from-[#318BC1]
+          via-[#8BC21F]
+          to-[#8BC21F]
+          opacity-80
+        "
+      />
+
+      {/* ======================================================
           IMAGE
-      ================================================= */}
+      ====================================================== */}
 
       <div
         className={`
           ${imageHeight}
+          relative
           w-full
           overflow-hidden
-          relative
           bg-gray-100
         `}
       >
@@ -627,147 +822,212 @@ function TeamCard({
         <img
           src={member.image}
           alt={member.name}
-          loading="lazy"
           className="
+            absolute
+            inset-0
             w-full
             h-full
             object-cover
+            object-top
             transition-transform
             duration-700
-            group-hover:scale-105
+            ease-out
+            group-hover:scale-[1.035]
           "
         />
 
-        {/* Hover Overlay */}
+        {/* Subtle image gradient */}
 
         <div
           className="
             absolute
             inset-0
             bg-gradient-to-t
-            from-black/25
+            from-black/35
+            via-transparent
             to-transparent
-            opacity-0
-            group-hover:opacity-100
+            opacity-60
+            group-hover:opacity-40
             transition-opacity
             duration-500
           "
         />
 
+        {/* Member number */}
+
+        <div
+          className="
+            absolute
+            top-4
+            right-4
+            flex
+            items-center
+            justify-center
+            w-9
+            h-9
+            rounded-full
+            bg-white/85
+            backdrop-blur-md
+            shadow-sm
+            text-xs
+            font-bold
+            text-[#6f9900]
+          "
+        >
+          {String(index + 1).padStart(2, "0")}
+        </div>
+
       </div>
 
-
-      {/* =================================================
+      {/* ======================================================
           DETAILS
-      ================================================= */}
+      ====================================================== */}
 
-      <div
-        className="
-          text-center
-          px-4
-          sm:px-5
-          py-5
-          sm:py-6
-        "
-      >
+      <div className="relative px-5 sm:px-6 py-5 sm:py-6">
 
         <h3
           className="
             text-lg
             sm:text-xl
             font-bold
-            text-gray-900
-            mb-1.5
-            break-words
+            text-[#263238]
+            leading-tight
+            transition-colors
+            duration-300
+            group-hover:text-[#6f9900]
           "
         >
           {member.name}
         </h3>
 
-
         <p
           className="
-            text-gray-600
-            text-sm
-            leading-snug
-            min-h-[38px]
+            mt-2
+            min-h-[40px]
             flex
             items-center
-            justify-center
-            break-words
+            text-sm
+            leading-5
+            text-gray-500
           "
         >
           {member.position}
         </p>
 
-
-        {/* =================================================
-            LINKS
-        ================================================= */}
+        {/* ==================================================
+            SOCIAL LINKS
+        ================================================== */}
 
         <div
           className="
             flex
-            justify-center
             items-center
-            gap-3
-            mt-4
-            pt-3
+            gap-2
+            mt-5
+            pt-4
             border-t
             border-gray-100
           "
         >
 
+          {/* LinkedIn */}
+
           <a
             href={member.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={`${member.name} on LinkedIn`}
             className="
-              text-sm
-              font-medium
-              text-gray-600
-              hover:text-[#5c438c]
-              underline
-              underline-offset-4
-              decoration-gray-300
-              hover:decoration-[#5c438c]
+              group/link
+              flex
+              items-center
+              justify-center
+              gap-2
+              flex-1
+              min-w-0
+              px-3
+              py-2.5
+              rounded-xl
+              bg-[#318BC1]/8
+              text-[#318BC1]
               transition-all
               duration-300
-              whitespace-nowrap
+              hover:bg-[#318BC1]
+              hover:text-white
             "
           >
-            LinkedIn
+
+            <Linkedin className="w-4 h-4 shrink-0" />
+
+            <span className="text-xs sm:text-sm font-semibold">
+              LinkedIn
+            </span>
+
+            <ArrowUpRight
+              className="
+                w-3.5
+                h-3.5
+                shrink-0
+                opacity-60
+                transition-transform
+                duration-300
+                group-hover/link:translate-x-0.5
+                group-hover/link:-translate-y-0.5
+              "
+            />
+
           </a>
 
-
-          <span className="text-gray-300">
-            |
-          </span>
-
+          {/* Mail */}
 
           <a
             href={member.email}
+            aria-label={`Email ${member.name}`}
             className="
-              text-sm
-              font-medium
-              text-gray-600
-              hover:text-[#5c438c]
-              underline
-              underline-offset-4
-              decoration-gray-300
-              hover:decoration-[#5c438c]
+              group/link
+              flex
+              items-center
+              justify-center
+              gap-2
+              flex-1
+              min-w-0
+              px-3
+              py-2.5
+              rounded-xl
+              bg-[#8BC21F]/10
+              text-[#6f9900]
               transition-all
               duration-300
-              whitespace-nowrap
+              hover:bg-[#8BC21F]
+              hover:text-white
             "
           >
-            Mail
+
+            <Mail className="w-4 h-4 shrink-0" />
+
+            <span className="text-xs sm:text-sm font-semibold">
+              Mail
+            </span>
+
+            <ArrowUpRight
+              className="
+                w-3.5
+                h-3.5
+                shrink-0
+                opacity-60
+                transition-transform
+                duration-300
+                group-hover/link:translate-x-0.5
+                group-hover/link:-translate-y-0.5
+              "
+            />
+
           </a>
 
         </div>
 
       </div>
 
-    </div>
+    </article>
   );
 }

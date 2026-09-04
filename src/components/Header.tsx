@@ -91,7 +91,7 @@ export default function Header() {
 
   /*
    * ============================================================
-   * NAVIGATION ITEM CLASSES
+   * DESKTOP NAVIGATION ITEM
    * ============================================================
    */
 
@@ -111,8 +111,8 @@ export default function Header() {
     ease-out
     ${
       active
-        ? 'text-[#5c438c] bg-[#5c438c]/10'
-        : 'text-gray-700 hover:text-[#5c438c] hover:bg-white/70'
+        ? 'text-[#5f8d00] bg-[#8BC21F]/15 shadow-sm'
+        : 'text-[#263238] hover:text-[#5f8d00] hover:bg-white/80'
     }
   `;
 
@@ -148,30 +148,51 @@ export default function Header() {
           ${
             isScrolled || !isHomePage
               ? `
-                bg-white/80
+                bg-white/85
                 backdrop-blur-xl
-                border-white/70
-                shadow-[0_8px_35px_rgba(38,25,65,0.10)]
+                border-white
+                shadow-[0_10px_40px_rgba(0,0,0,0.10)]
               `
               : `
-                bg-white/65
-                backdrop-blur-lg
-                border-white/50
-                shadow-[0_6px_30px_rgba(38,25,65,0.06)]
+                bg-white/70
+                backdrop-blur-xl
+                border-white/70
+                shadow-[0_8px_35px_rgba(0,0,0,0.07)]
               `
           }
         `}
       >
-        {/* Subtle purple glow behind header */}
+        {/* =====================================================
+            DECORATIVE GREEN GLOW
+        ===================================================== */}
+
         <div
           className="
             absolute
-            -top-20
+            -top-16
             left-1/2
             -translate-x-1/2
             w-72
+            h-24
+            bg-[#8BC21F]/10
+            blur-3xl
+            rounded-full
+            pointer-events-none
+          "
+        />
+
+        {/* =====================================================
+            DECORATIVE BLUE GLOW
+        ===================================================== */}
+
+        <div
+          className="
+            absolute
+            -bottom-16
+            right-20
+            w-48
             h-20
-            bg-[#5c438c]/10
+            bg-[#318BC1]/8
             blur-3xl
             rounded-full
             pointer-events-none
@@ -225,7 +246,7 @@ export default function Header() {
                 duration-300
                 group-hover:-translate-y-0.5
                 group-hover:scale-105
-                group-hover:shadow-[0_8px_25px_rgba(92,67,140,0.20)]
+                group-hover:shadow-[0_8px_25px_rgba(139,194,31,0.25)]
               "
             >
               <img
@@ -242,20 +263,21 @@ export default function Header() {
               />
             </div>
 
-            {/* Tiny accent glow */}
+            {/* Green logo glow */}
+
             <div
               className="
                 absolute
                 -bottom-1
                 left-1/2
                 -translate-x-1/2
-                w-5
+                w-6
                 h-1
                 rounded-full
-                bg-[#5c438c]/40
+                bg-[#8BC21F]
                 blur-sm
                 opacity-0
-                group-hover:opacity-100
+                group-hover:opacity-80
                 transition-opacity
                 duration-300
               "
@@ -274,23 +296,15 @@ export default function Header() {
               gap-1.5
             "
           >
-            {/* ------------------------------------------------
+            {/* =================================================
                 HOME
-            ------------------------------------------------ */}
+            ================================================= */}
 
             <Link
               to="/"
               className={navItemClass(isActive('/'))}
             >
-              <HomeIcon
-                className="
-                  w-4
-                  h-4
-                  transition-transform
-                  duration-300
-                  group-hover:scale-110
-                "
-              />
+              <HomeIcon className="w-4 h-4" />
 
               <span>Home</span>
 
@@ -304,15 +318,15 @@ export default function Header() {
                     w-1
                     h-1
                     rounded-full
-                    bg-[#5c438c]
+                    bg-[#8BC21F]
                   "
                 />
               )}
             </Link>
 
-            {/* ------------------------------------------------
+            {/* =================================================
                 CONTACT
-            ------------------------------------------------ */}
+            ================================================= */}
 
             <Link
               to="/contact"
@@ -332,7 +346,7 @@ export default function Header() {
                     w-1
                     h-1
                     rounded-full
-                    bg-[#5c438c]
+                    bg-[#8BC21F]
                   "
                 />
               )}
@@ -340,7 +354,7 @@ export default function Header() {
 
             {/* =================================================
                 KNOWLEDGE HUB
-                LAST DROPDOWN #1
+                LAST DROPDOWN
             ================================================= */}
 
             <div
@@ -350,10 +364,10 @@ export default function Header() {
             >
               <button
                 type="button"
-                className={navItemClass(isKnowledgeActive)}
                 onClick={() =>
                   setIsKnowledgeOpen(!isKnowledgeOpen)
                 }
+                className={navItemClass(isKnowledgeActive)}
               >
                 <BookOpen className="w-4 h-4" />
 
@@ -383,13 +397,15 @@ export default function Header() {
                       w-1
                       h-1
                       rounded-full
-                      bg-[#5c438c]
+                      bg-[#8BC21F]
                     "
                   />
                 )}
               </button>
 
-              {/* Knowledge Hub Dropdown */}
+              {/* =================================================
+                  KNOWLEDGE HUB DROPDOWN
+              ================================================= */}
 
               <div
                 className={`
@@ -400,10 +416,10 @@ export default function Header() {
                   p-2
                   rounded-2xl
                   border
-                  border-white/80
-                  bg-white/85
+                  border-white
+                  bg-white/90
                   backdrop-blur-2xl
-                  shadow-[0_20px_50px_rgba(38,25,65,0.16)]
+                  shadow-[0_20px_50px_rgba(0,0,0,0.14)]
                   transition-all
                   duration-300
                   origin-top-right
@@ -414,7 +430,7 @@ export default function Header() {
                   }
                 `}
               >
-                {/* Small top accent */}
+                {/* Dropdown pointer */}
 
                 <div
                   className="
@@ -424,12 +440,14 @@ export default function Header() {
                     w-3
                     h-3
                     rotate-45
-                    bg-white/90
+                    bg-white
                     border-l
                     border-t
-                    border-white/80
+                    border-white
                   "
                 />
+
+                {/* Podcast */}
 
                 <Link
                   to="/podcast"
@@ -443,7 +461,7 @@ export default function Header() {
                     rounded-xl
                     transition-all
                     duration-200
-                    hover:bg-[#5c438c]/8
+                    hover:bg-[#8BC21F]/10
                   "
                 >
                   <div
@@ -454,12 +472,13 @@ export default function Header() {
                       w-9
                       h-9
                       rounded-lg
-                      bg-[#5c438c]/10
-                      text-[#5c438c]
+                      bg-[#8BC21F]/15
+                      text-[#6f9900]
                       transition-all
                       duration-200
-                      group-hover:bg-[#5c438c]
+                      group-hover:bg-[#8BC21F]
                       group-hover:text-white
+                      group-hover:scale-105
                     "
                   >
                     <PodcastIcon className="w-4 h-4" />
@@ -469,11 +488,14 @@ export default function Header() {
                     <p className="text-sm font-semibold text-gray-800">
                       Podcast
                     </p>
+
                     <p className="text-xs text-gray-500 mt-0.5">
                       Scholar's Weekly
                     </p>
                   </div>
                 </Link>
+
+                {/* Impact Report */}
 
                 <Link
                   to="/impact-report"
@@ -487,7 +509,7 @@ export default function Header() {
                     rounded-xl
                     transition-all
                     duration-200
-                    hover:bg-[#5c438c]/8
+                    hover:bg-[#8BC21F]/10
                   "
                 >
                   <div
@@ -498,12 +520,13 @@ export default function Header() {
                       w-9
                       h-9
                       rounded-lg
-                      bg-[#5c438c]/10
-                      text-[#5c438c]
+                      bg-[#318BC1]/10
+                      text-[#318BC1]
                       transition-all
                       duration-200
-                      group-hover:bg-[#5c438c]
+                      group-hover:bg-[#318BC1]
                       group-hover:text-white
+                      group-hover:scale-105
                     "
                   >
                     <FileText className="w-4 h-4" />
@@ -513,11 +536,14 @@ export default function Header() {
                     <p className="text-sm font-semibold text-gray-800">
                       Impact Report
                     </p>
+
                     <p className="text-xs text-gray-500 mt-0.5">
                       Our work &amp; impact
                     </p>
                   </div>
                 </Link>
+
+                {/* Resources */}
 
                 <Link
                   to="/resources"
@@ -531,7 +557,7 @@ export default function Header() {
                     rounded-xl
                     transition-all
                     duration-200
-                    hover:bg-[#5c438c]/8
+                    hover:bg-[#8BC21F]/10
                   "
                 >
                   <div
@@ -542,12 +568,13 @@ export default function Header() {
                       w-9
                       h-9
                       rounded-lg
-                      bg-[#5c438c]/10
-                      text-[#5c438c]
+                      bg-[#8BC21F]/15
+                      text-[#6f9900]
                       transition-all
                       duration-200
-                      group-hover:bg-[#5c438c]
+                      group-hover:bg-[#8BC21F]
                       group-hover:text-white
+                      group-hover:scale-105
                     "
                   >
                     <Library className="w-4 h-4" />
@@ -557,6 +584,7 @@ export default function Header() {
                     <p className="text-sm font-semibold text-gray-800">
                       Resources
                     </p>
+
                     <p className="text-xs text-gray-500 mt-0.5">
                       Explore our resources
                     </p>
@@ -567,7 +595,7 @@ export default function Header() {
 
             {/* =================================================
                 ABOUT
-                LAST DROPDOWN #2
+                LAST DROPDOWN
             ================================================= */}
 
             <div
@@ -577,10 +605,10 @@ export default function Header() {
             >
               <button
                 type="button"
-                className={navItemClass(isAboutActive)}
                 onClick={() =>
                   setIsAboutOpen(!isAboutOpen)
                 }
+                className={navItemClass(isAboutActive)}
               >
                 <Users className="w-4 h-4" />
 
@@ -610,13 +638,15 @@ export default function Header() {
                       w-1
                       h-1
                       rounded-full
-                      bg-[#5c438c]
+                      bg-[#8BC21F]
                     "
                   />
                 )}
               </button>
 
-              {/* About Dropdown */}
+              {/* =================================================
+                  ABOUT DROPDOWN
+              ================================================= */}
 
               <div
                 className={`
@@ -627,10 +657,10 @@ export default function Header() {
                   p-2
                   rounded-2xl
                   border
-                  border-white/80
-                  bg-white/85
+                  border-white
+                  bg-white/90
                   backdrop-blur-2xl
-                  shadow-[0_20px_50px_rgba(38,25,65,0.16)]
+                  shadow-[0_20px_50px_rgba(0,0,0,0.14)]
                   transition-all
                   duration-300
                   origin-top-right
@@ -641,7 +671,7 @@ export default function Header() {
                   }
                 `}
               >
-                {/* Small top accent */}
+                {/* Dropdown pointer */}
 
                 <div
                   className="
@@ -651,12 +681,14 @@ export default function Header() {
                     w-3
                     h-3
                     rotate-45
-                    bg-white/90
+                    bg-white
                     border-l
                     border-t
-                    border-white/80
+                    border-white
                   "
                 />
+
+                {/* About CDF */}
 
                 <Link
                   to="/about-cdf"
@@ -670,7 +702,7 @@ export default function Header() {
                     rounded-xl
                     transition-all
                     duration-200
-                    hover:bg-[#5c438c]/8
+                    hover:bg-[#8BC21F]/10
                   "
                 >
                   <div
@@ -681,12 +713,13 @@ export default function Header() {
                       w-9
                       h-9
                       rounded-lg
-                      bg-[#5c438c]/10
-                      text-[#5c438c]
+                      bg-[#8BC21F]/15
+                      text-[#6f9900]
                       transition-all
                       duration-200
-                      group-hover:bg-[#5c438c]
+                      group-hover:bg-[#8BC21F]
                       group-hover:text-white
+                      group-hover:scale-105
                     "
                   >
                     <Building2 className="w-4 h-4" />
@@ -696,11 +729,14 @@ export default function Header() {
                     <p className="text-sm font-semibold text-gray-800">
                       About CDF
                     </p>
+
                     <p className="text-xs text-gray-500 mt-0.5">
                       About the organization
                     </p>
                   </div>
                 </Link>
+
+                {/* About Us */}
 
                 <Link
                   to="/about-us"
@@ -714,7 +750,7 @@ export default function Header() {
                     rounded-xl
                     transition-all
                     duration-200
-                    hover:bg-[#5c438c]/8
+                    hover:bg-[#8BC21F]/10
                   "
                 >
                   <div
@@ -725,12 +761,13 @@ export default function Header() {
                       w-9
                       h-9
                       rounded-lg
-                      bg-[#5c438c]/10
-                      text-[#5c438c]
+                      bg-[#318BC1]/10
+                      text-[#318BC1]
                       transition-all
                       duration-200
-                      group-hover:bg-[#5c438c]
+                      group-hover:bg-[#318BC1]
                       group-hover:text-white
+                      group-hover:scale-105
                     "
                   >
                     <Users className="w-4 h-4" />
@@ -740,11 +777,14 @@ export default function Header() {
                     <p className="text-sm font-semibold text-gray-800">
                       About Us
                     </p>
+
                     <p className="text-xs text-gray-500 mt-0.5">
                       Meet our chapter
                     </p>
                   </div>
                 </Link>
+
+                {/* Founding Team */}
 
                 <Link
                   to="/the-founding-team"
@@ -758,7 +798,7 @@ export default function Header() {
                     rounded-xl
                     transition-all
                     duration-200
-                    hover:bg-[#5c438c]/8
+                    hover:bg-[#8BC21F]/10
                   "
                 >
                   <div
@@ -769,12 +809,13 @@ export default function Header() {
                       w-9
                       h-9
                       rounded-lg
-                      bg-[#5c438c]/10
-                      text-[#5c438c]
+                      bg-[#8BC21F]/15
+                      text-[#6f9900]
                       transition-all
                       duration-200
-                      group-hover:bg-[#5c438c]
+                      group-hover:bg-[#8BC21F]
                       group-hover:text-white
+                      group-hover:scale-105
                     "
                   >
                     <Users className="w-4 h-4" />
@@ -784,6 +825,7 @@ export default function Header() {
                     <p className="text-sm font-semibold text-gray-800">
                       The Founding Team
                     </p>
+
                     <p className="text-xs text-gray-500 mt-0.5">
                       Meet the founding team
                     </p>
@@ -810,14 +852,14 @@ export default function Header() {
               w-10
               h-10
               rounded-xl
-              bg-white/70
+              bg-white/75
               border
               border-white
               text-gray-800
               shadow-sm
               transition-all
               duration-300
-              hover:bg-[#5c438c]
+              hover:bg-[#8BC21F]
               hover:text-white
               hover:shadow-lg
               active:scale-95
@@ -854,15 +896,16 @@ export default function Header() {
               className="
                 p-2
                 rounded-2xl
-                bg-white/60
+                bg-white/70
                 border
-                border-white/70
+                border-white
                 backdrop-blur-xl
+                shadow-inner
               "
             >
-              {/* ------------------------------------------------
+              {/* =================================================
                   HOME
-              ------------------------------------------------ */}
+              ================================================= */}
 
               <Link
                 to="/"
@@ -879,8 +922,8 @@ export default function Header() {
                   duration-200
                   ${
                     isActive('/')
-                      ? 'bg-[#5c438c]/10 text-[#5c438c]'
-                      : 'text-gray-700 hover:bg-white/80 hover:text-[#5c438c]'
+                      ? 'bg-[#8BC21F]/15 text-[#5f8d00]'
+                      : 'text-gray-700 hover:bg-white/80 hover:text-[#5f8d00]'
                   }
                 `}
               >
@@ -888,9 +931,9 @@ export default function Header() {
                 Home
               </Link>
 
-              {/* ------------------------------------------------
+              {/* =================================================
                   CONTACT
-              ------------------------------------------------ */}
+              ================================================= */}
 
               <Link
                 to="/contact"
@@ -907,8 +950,8 @@ export default function Header() {
                   duration-200
                   ${
                     isActive('/contact')
-                      ? 'bg-[#5c438c]/10 text-[#5c438c]'
-                      : 'text-gray-700 hover:bg-white/80 hover:text-[#5c438c]'
+                      ? 'bg-[#8BC21F]/15 text-[#5f8d00]'
+                      : 'text-gray-700 hover:bg-white/80 hover:text-[#5f8d00]'
                   }
                 `}
               >
@@ -942,8 +985,8 @@ export default function Header() {
                     duration-200
                     ${
                       isKnowledgeActive
-                        ? 'bg-[#5c438c]/10 text-[#5c438c]'
-                        : 'text-gray-700 hover:bg-white/80 hover:text-[#5c438c]'
+                        ? 'bg-[#8BC21F]/15 text-[#5f8d00]'
+                        : 'text-gray-700 hover:bg-white/80 hover:text-[#5f8d00]'
                     }
                   `}
                 >
@@ -986,7 +1029,7 @@ export default function Header() {
                       mb-1
                       pl-3
                       border-l-2
-                      border-[#5c438c]/15
+                      border-[#8BC21F]/30
                     "
                   >
                     <Link
@@ -1000,8 +1043,8 @@ export default function Header() {
                         rounded-lg
                         text-sm
                         text-gray-600
-                        hover:bg-[#5c438c]/5
-                        hover:text-[#5c438c]
+                        hover:bg-[#8BC21F]/10
+                        hover:text-[#6f9900]
                         transition-colors
                       "
                     >
@@ -1020,8 +1063,8 @@ export default function Header() {
                         rounded-lg
                         text-sm
                         text-gray-600
-                        hover:bg-[#5c438c]/5
-                        hover:text-[#5c438c]
+                        hover:bg-[#8BC21F]/10
+                        hover:text-[#6f9900]
                         transition-colors
                       "
                     >
@@ -1040,8 +1083,8 @@ export default function Header() {
                         rounded-lg
                         text-sm
                         text-gray-600
-                        hover:bg-[#5c438c]/5
-                        hover:text-[#5c438c]
+                        hover:bg-[#8BC21F]/10
+                        hover:text-[#6f9900]
                         transition-colors
                       "
                     >
@@ -1078,8 +1121,8 @@ export default function Header() {
                     duration-200
                     ${
                       isAboutActive
-                        ? 'bg-[#5c438c]/10 text-[#5c438c]'
-                        : 'text-gray-700 hover:bg-white/80 hover:text-[#5c438c]'
+                        ? 'bg-[#8BC21F]/15 text-[#5f8d00]'
+                        : 'text-gray-700 hover:bg-white/80 hover:text-[#5f8d00]'
                     }
                   `}
                 >
@@ -1122,7 +1165,7 @@ export default function Header() {
                       mb-1
                       pl-3
                       border-l-2
-                      border-[#5c438c]/15
+                      border-[#8BC21F]/30
                     "
                   >
                     <Link
@@ -1136,8 +1179,8 @@ export default function Header() {
                         rounded-lg
                         text-sm
                         text-gray-600
-                        hover:bg-[#5c438c]/5
-                        hover:text-[#5c438c]
+                        hover:bg-[#8BC21F]/10
+                        hover:text-[#6f9900]
                         transition-colors
                       "
                     >
@@ -1156,8 +1199,8 @@ export default function Header() {
                         rounded-lg
                         text-sm
                         text-gray-600
-                        hover:bg-[#5c438c]/5
-                        hover:text-[#5c438c]
+                        hover:bg-[#8BC21F]/10
+                        hover:text-[#6f9900]
                         transition-colors
                       "
                     >
@@ -1176,8 +1219,8 @@ export default function Header() {
                         rounded-lg
                         text-sm
                         text-gray-600
-                        hover:bg-[#5c438c]/5
-                        hover:text-[#5c438c]
+                        hover:bg-[#8BC21F]/10
+                        hover:text-[#6f9900]
                         transition-colors
                       "
                     >

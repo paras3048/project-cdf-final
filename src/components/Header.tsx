@@ -1,50 +1,64 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Home as HomeIcon,
+  Mail,
+  BookOpen,
+  Users,
+  Podcast as PodcastIcon,
+  FileText,
+  Library,
+  Building2,
+} from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function Header() {
-  // Mobile menu
   const [isOpen, setIsOpen] = useState(false);
 
-  // Header scroll state
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Desktop About dropdown
   const [isAboutOpen, setIsAboutOpen] = useState(false);
 
-  // Desktop Knowledge Hub dropdown
   const [isKnowledgeOpen, setIsKnowledgeOpen] = useState(false);
 
-  // Mobile Knowledge Hub dropdown
-  const [isMobileKnowledgeOpen, setIsMobileKnowledgeOpen] = useState(false);
+  const [isMobileKnowledgeOpen, setIsMobileKnowledgeOpen] =
+    useState(false);
 
-  // Current route
+  const [isMobileAboutOpen, setIsMobileAboutOpen] =
+    useState(false);
+
   const location = useLocation();
 
-  // Check if current page is Home
   const isHomePage = location.pathname === '/';
 
-
-  /* =====================================================
-     CLOSE MOBILE MENU WHEN ROUTE CHANGES
-  ====================================================== */
+  /*
+   * ============================================================
+   * CLOSE MENUS WHEN ROUTE CHANGES
+   * ============================================================
+   */
 
   useEffect(() => {
     setIsOpen(false);
     setIsMobileKnowledgeOpen(false);
+    setIsMobileAboutOpen(false);
     setIsAboutOpen(false);
     setIsKnowledgeOpen(false);
   }, [location.pathname]);
 
-
-  /* =====================================================
-     HANDLE HEADER SCROLL
-  ====================================================== */
+  /*
+   * ============================================================
+   * HEADER SCROLL EFFECT
+   * ============================================================
+   */
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 25);
     };
+
+    handleScroll();
 
     window.addEventListener('scroll', handleScroll);
 
@@ -53,21 +67,54 @@ export default function Header() {
     };
   }, []);
 
+  /*
+   * ============================================================
+   * ACTIVE ROUTE HELPERS
+   * ============================================================
+   */
 
-  /* =====================================================
-     HEADER BACKGROUND
-  ====================================================== */
-
-  const getHeaderStyle = () => {
-    if (!isHomePage) {
-      return 'bg-white shadow-sm';
-    }
-
-    return isScrolled
-      ? 'bg-white shadow-sm'
-      : 'bg-transparent';
+  const isActive = (path: string) => {
+    return location.pathname === path;
   };
 
+  const isKnowledgeActive = [
+    '/podcast',
+    '/impact-report',
+    '/resources',
+  ].includes(location.pathname);
+
+  const isAboutActive = [
+    '/about-cdf',
+    '/about-us',
+    '/the-founding-team',
+  ].includes(location.pathname);
+
+  /*
+   * ============================================================
+   * NAVIGATION ITEM CLASSES
+   * ============================================================
+   */
+
+  const navItemClass = (active: boolean) => `
+    relative
+    flex
+    items-center
+    gap-2
+    px-4
+    py-2.5
+    rounded-full
+    text-sm
+    font-medium
+    whitespace-nowrap
+    transition-all
+    duration-300
+    ease-out
+    ${
+      active
+        ? 'text-[#5c438c] bg-[#5c438c]/10'
+        : 'text-gray-700 hover:text-[#5c438c] hover:bg-white/70'
+    }
+  `;
 
   return (
     <header
@@ -78,127 +125,246 @@ export default function Header() {
         w-full
         z-50
         transition-all
-        duration-300
-        ${getHeaderStyle()}
+        duration-500
+        ease-out
+        ${
+          isScrolled || !isHomePage
+            ? 'pt-2 sm:pt-3'
+            : 'pt-3 sm:pt-5'
+        }
       `}
     >
-
       <nav
-        className="
-          max-w-7xl
+        className={`
+          relative
           mx-auto
-          px-4
-          sm:px-6
-          md:px-8
-          py-3
-          sm:py-4
-        "
+          w-[calc(100%-1rem)]
+          sm:w-[calc(100%-2rem)]
+          max-w-7xl
+          rounded-2xl
+          border
+          transition-all
+          duration-500
+          ${
+            isScrolled || !isHomePage
+              ? `
+                bg-white/80
+                backdrop-blur-xl
+                border-white/70
+                shadow-[0_8px_35px_rgba(38,25,65,0.10)]
+              `
+              : `
+                bg-white/65
+                backdrop-blur-lg
+                border-white/50
+                shadow-[0_6px_30px_rgba(38,25,65,0.06)]
+              `
+          }
+        `}
       >
+        {/* Subtle purple glow behind header */}
+        <div
+          className="
+            absolute
+            -top-20
+            left-1/2
+            -translate-x-1/2
+            w-72
+            h-20
+            bg-[#5c438c]/10
+            blur-3xl
+            rounded-full
+            pointer-events-none
+          "
+        />
 
-        {/* =================================================
-            HEADER CONTENT
-        ================================================== */}
-
-        <div className="flex justify-between items-center">
-
-
-          {/* =================================================
+        <div
+          className="
+            relative
+            flex
+            items-center
+            justify-between
+            px-3
+            sm:px-5
+            lg:px-6
+            py-2.5
+            sm:py-3
+          "
+        >
+          {/* ====================================================
               LOGO
-          ================================================== */}
+          ==================================================== */}
 
           <Link
             to="/"
             className="
-              w-32
-              sm:w-40
+              group
+              relative
               flex
               items-center
+              shrink-0
             "
           >
-            <img
-              src="/images/logo/1.png"
-              alt="CDF Logo"
+            <div
               className="
+                relative
+                flex
+                items-center
+                justify-center
                 w-11
                 h-11
                 sm:w-12
                 sm:h-12
-                object-cover
-                rounded-lg
-                shadow-md
-                hover:shadow-xl
-                transition-shadow
+                rounded-xl
+                overflow-hidden
+                bg-white
+                border
+                border-white
+                shadow-[0_4px_18px_rgba(0,0,0,0.10)]
+                transition-all
                 duration-300
-                cursor-pointer
+                group-hover:-translate-y-0.5
+                group-hover:scale-105
+                group-hover:shadow-[0_8px_25px_rgba(92,67,140,0.20)]
+              "
+            >
+              <img
+                src="/images/logo/1.png"
+                alt="CDF Logo"
+                className="
+                  w-full
+                  h-full
+                  object-cover
+                  transition-transform
+                  duration-500
+                  group-hover:scale-110
+                "
+              />
+            </div>
+
+            {/* Tiny accent glow */}
+            <div
+              className="
+                absolute
+                -bottom-1
+                left-1/2
+                -translate-x-1/2
+                w-5
+                h-1
+                rounded-full
+                bg-[#5c438c]/40
+                blur-sm
+                opacity-0
+                group-hover:opacity-100
+                transition-opacity
+                duration-300
               "
             />
           </Link>
 
-
-          {/* =================================================
+          {/* ====================================================
               DESKTOP NAVIGATION
-          ================================================== */}
+          ==================================================== */}
 
           <div
             className="
               hidden
               md:flex
               items-center
-              space-x-6
+              gap-1.5
             "
           >
-
-            {/* =================================================
+            {/* ------------------------------------------------
                 HOME
-            ================================================== */}
+            ------------------------------------------------ */}
 
             <Link
               to="/"
-              className="
-                text-gray-800
-                font-medium
-                hover:text-[#5c438c]
-                transition-colors
-                duration-300
-              "
+              className={navItemClass(isActive('/'))}
             >
-              Home
+              <HomeIcon
+                className="
+                  w-4
+                  h-4
+                  transition-transform
+                  duration-300
+                  group-hover:scale-110
+                "
+              />
+
+              <span>Home</span>
+
+              {isActive('/') && (
+                <span
+                  className="
+                    absolute
+                    bottom-1
+                    left-1/2
+                    -translate-x-1/2
+                    w-1
+                    h-1
+                    rounded-full
+                    bg-[#5c438c]
+                  "
+                />
+              )}
             </Link>
 
+            {/* ------------------------------------------------
+                CONTACT
+            ------------------------------------------------ */}
+
+            <Link
+              to="/contact"
+              className={navItemClass(isActive('/contact'))}
+            >
+              <Mail className="w-4 h-4" />
+
+              <span>Contact</span>
+
+              {isActive('/contact') && (
+                <span
+                  className="
+                    absolute
+                    bottom-1
+                    left-1/2
+                    -translate-x-1/2
+                    w-1
+                    h-1
+                    rounded-full
+                    bg-[#5c438c]
+                  "
+                />
+              )}
+            </Link>
 
             {/* =================================================
-                KNOWLEDGE HUB DROPDOWN
-            ================================================== */}
+                KNOWLEDGE HUB
+                LAST DROPDOWN #1
+            ================================================= */}
 
             <div
               className="relative"
               onMouseEnter={() => setIsKnowledgeOpen(true)}
               onMouseLeave={() => setIsKnowledgeOpen(false)}
             >
-
-              {/* Knowledge Hub Button */}
-
               <button
                 type="button"
-                className="
-                  flex
-                  items-center
-                  gap-1
-                  text-gray-800
-                  font-medium
-                  hover:text-[#5c438c]
-                  transition-colors
-                  duration-300
-                "
+                className={navItemClass(isKnowledgeActive)}
+                onClick={() =>
+                  setIsKnowledgeOpen(!isKnowledgeOpen)
+                }
               >
-                Knowledge Hub
+                <BookOpen className="w-4 h-4" />
+
+                <span>Knowledge Hub</span>
 
                 <ChevronDown
                   className={`
                     w-4
                     h-4
                     transition-transform
-                    duration-200
+                    duration-300
                     ${
                       isKnowledgeOpen
                         ? 'rotate-180'
@@ -206,8 +372,22 @@ export default function Header() {
                     }
                   `}
                 />
-              </button>
 
+                {isKnowledgeActive && (
+                  <span
+                    className="
+                      absolute
+                      bottom-1
+                      left-1/2
+                      -translate-x-1/2
+                      w-1
+                      h-1
+                      rounded-full
+                      bg-[#5c438c]
+                    "
+                  />
+                )}
+              </button>
 
               {/* Knowledge Hub Dropdown */}
 
@@ -215,139 +395,203 @@ export default function Header() {
                 className={`
                   absolute
                   right-0
-                  top-full
-                  mt-3
-                  w-52
-                  bg-white
-                  rounded-xl
-                  shadow-xl
+                  top-[calc(100%+10px)]
+                  w-64
+                  p-2
+                  rounded-2xl
                   border
-                  border-gray-100
-                  py-2
-
+                  border-white/80
+                  bg-white/85
+                  backdrop-blur-2xl
+                  shadow-[0_20px_50px_rgba(38,25,65,0.16)]
                   transition-all
-                  duration-200
-
+                  duration-300
+                  origin-top-right
                   ${
                     isKnowledgeOpen
-                      ? 'opacity-100 visible translate-y-0'
-                      : 'opacity-0 invisible -translate-y-2'
+                      ? 'opacity-100 visible translate-y-0 scale-100'
+                      : 'opacity-0 invisible -translate-y-2 scale-95 pointer-events-none'
                   }
                 `}
               >
+                {/* Small top accent */}
 
-                {/* Podcast */}
+                <div
+                  className="
+                    absolute
+                    -top-1
+                    right-8
+                    w-3
+                    h-3
+                    rotate-45
+                    bg-white/90
+                    border-l
+                    border-t
+                    border-white/80
+                  "
+                />
 
                 <Link
                   to="/podcast"
                   className="
-                    block
-                    px-5
+                    group
+                    flex
+                    items-center
+                    gap-3
+                    px-4
                     py-3
-                    text-gray-800
-                    hover:bg-gray-50
-                    hover:text-[#5c438c]
-                    transition-colors
+                    rounded-xl
+                    transition-all
                     duration-200
+                    hover:bg-[#5c438c]/8
                   "
                 >
-                  Podcast
+                  <div
+                    className="
+                      flex
+                      items-center
+                      justify-center
+                      w-9
+                      h-9
+                      rounded-lg
+                      bg-[#5c438c]/10
+                      text-[#5c438c]
+                      transition-all
+                      duration-200
+                      group-hover:bg-[#5c438c]
+                      group-hover:text-white
+                    "
+                  >
+                    <PodcastIcon className="w-4 h-4" />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold text-gray-800">
+                      Podcast
+                    </p>
+                    <p className="text-xs text-gray-500 mt-0.5">
+                      Scholar's Weekly
+                    </p>
+                  </div>
                 </Link>
-
-
-                {/* Impact Report */}
 
                 <Link
                   to="/impact-report"
                   className="
-                    block
-                    px-5
+                    group
+                    flex
+                    items-center
+                    gap-3
+                    px-4
                     py-3
-                    text-gray-800
-                    hover:bg-gray-50
-                    hover:text-[#5c438c]
-                    transition-colors
+                    rounded-xl
+                    transition-all
                     duration-200
+                    hover:bg-[#5c438c]/8
                   "
                 >
-                  Impact Report
+                  <div
+                    className="
+                      flex
+                      items-center
+                      justify-center
+                      w-9
+                      h-9
+                      rounded-lg
+                      bg-[#5c438c]/10
+                      text-[#5c438c]
+                      transition-all
+                      duration-200
+                      group-hover:bg-[#5c438c]
+                      group-hover:text-white
+                    "
+                  >
+                    <FileText className="w-4 h-4" />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold text-gray-800">
+                      Impact Report
+                    </p>
+                    <p className="text-xs text-gray-500 mt-0.5">
+                      Our work &amp; impact
+                    </p>
+                  </div>
                 </Link>
-
-
-                {/* Resources */}
 
                 <Link
                   to="/resources"
                   className="
-                    block
-                    px-5
+                    group
+                    flex
+                    items-center
+                    gap-3
+                    px-4
                     py-3
-                    text-gray-800
-                    hover:bg-gray-50
-                    hover:text-[#5c438c]
-                    transition-colors
+                    rounded-xl
+                    transition-all
                     duration-200
+                    hover:bg-[#5c438c]/8
                   "
                 >
-                  Resources
+                  <div
+                    className="
+                      flex
+                      items-center
+                      justify-center
+                      w-9
+                      h-9
+                      rounded-lg
+                      bg-[#5c438c]/10
+                      text-[#5c438c]
+                      transition-all
+                      duration-200
+                      group-hover:bg-[#5c438c]
+                      group-hover:text-white
+                    "
+                  >
+                    <Library className="w-4 h-4" />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold text-gray-800">
+                      Resources
+                    </p>
+                    <p className="text-xs text-gray-500 mt-0.5">
+                      Explore our resources
+                    </p>
+                  </div>
                 </Link>
-
               </div>
-
             </div>
 
-
             {/* =================================================
-                CONTACT
-            ================================================== */}
-
-            <Link
-              to="/contact"
-              className="
-                text-gray-800
-                font-medium
-                hover:text-[#5c438c]
-                transition-colors
-                duration-300
-              "
-            >
-              Contact
-            </Link>
-
-
-            {/* =================================================
-                ABOUT DROPDOWN
-            ================================================== */}
+                ABOUT
+                LAST DROPDOWN #2
+            ================================================= */}
 
             <div
               className="relative"
               onMouseEnter={() => setIsAboutOpen(true)}
               onMouseLeave={() => setIsAboutOpen(false)}
             >
-
-              {/* About Button */}
-
               <button
                 type="button"
-                className="
-                  flex
-                  items-center
-                  gap-1
-                  text-gray-800
-                  font-medium
-                  hover:text-[#5c438c]
-                  transition-colors
-                  duration-300
-                "
+                className={navItemClass(isAboutActive)}
+                onClick={() =>
+                  setIsAboutOpen(!isAboutOpen)
+                }
               >
-                About
+                <Users className="w-4 h-4" />
+
+                <span>About</span>
 
                 <ChevronDown
                   className={`
                     w-4
                     h-4
                     transition-transform
-                    duration-200
+                    duration-300
                     ${
                       isAboutOpen
                         ? 'rotate-180'
@@ -355,8 +599,22 @@ export default function Header() {
                     }
                   `}
                 />
-              </button>
 
+                {isAboutActive && (
+                  <span
+                    className="
+                      absolute
+                      bottom-1
+                      left-1/2
+                      -translate-x-1/2
+                      w-1
+                      h-1
+                      rounded-full
+                      bg-[#5c438c]
+                    "
+                  />
+                )}
+              </button>
 
               {/* About Dropdown */}
 
@@ -364,366 +622,575 @@ export default function Header() {
                 className={`
                   absolute
                   right-0
-                  top-full
-                  mt-3
-                  w-52
-                  bg-white
-                  rounded-xl
-                  shadow-xl
+                  top-[calc(100%+10px)]
+                  w-64
+                  p-2
+                  rounded-2xl
                   border
-                  border-gray-100
-                  py-2
-
+                  border-white/80
+                  bg-white/85
+                  backdrop-blur-2xl
+                  shadow-[0_20px_50px_rgba(38,25,65,0.16)]
                   transition-all
-                  duration-200
-
+                  duration-300
+                  origin-top-right
                   ${
                     isAboutOpen
-                      ? 'opacity-100 visible translate-y-0'
-                      : 'opacity-0 invisible -translate-y-2'
+                      ? 'opacity-100 visible translate-y-0 scale-100'
+                      : 'opacity-0 invisible -translate-y-2 scale-95 pointer-events-none'
                   }
                 `}
               >
+                {/* Small top accent */}
 
-                {/* About CDF */}
+                <div
+                  className="
+                    absolute
+                    -top-1
+                    right-8
+                    w-3
+                    h-3
+                    rotate-45
+                    bg-white/90
+                    border-l
+                    border-t
+                    border-white/80
+                  "
+                />
 
                 <Link
                   to="/about-cdf"
                   className="
-                    block
-                    px-5
+                    group
+                    flex
+                    items-center
+                    gap-3
+                    px-4
                     py-3
-                    text-gray-800
-                    hover:bg-gray-50
-                    hover:text-[#5c438c]
-                    transition-colors
+                    rounded-xl
+                    transition-all
                     duration-200
+                    hover:bg-[#5c438c]/8
                   "
                 >
-                  About CDF
+                  <div
+                    className="
+                      flex
+                      items-center
+                      justify-center
+                      w-9
+                      h-9
+                      rounded-lg
+                      bg-[#5c438c]/10
+                      text-[#5c438c]
+                      transition-all
+                      duration-200
+                      group-hover:bg-[#5c438c]
+                      group-hover:text-white
+                    "
+                  >
+                    <Building2 className="w-4 h-4" />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold text-gray-800">
+                      About CDF
+                    </p>
+                    <p className="text-xs text-gray-500 mt-0.5">
+                      About the organization
+                    </p>
+                  </div>
                 </Link>
-
-
-                {/* About Us */}
 
                 <Link
                   to="/about-us"
                   className="
-                    block
-                    px-5
+                    group
+                    flex
+                    items-center
+                    gap-3
+                    px-4
                     py-3
-                    text-gray-800
-                    hover:bg-gray-50
-                    hover:text-[#5c438c]
-                    transition-colors
+                    rounded-xl
+                    transition-all
                     duration-200
+                    hover:bg-[#5c438c]/8
                   "
                 >
-                  About Us
+                  <div
+                    className="
+                      flex
+                      items-center
+                      justify-center
+                      w-9
+                      h-9
+                      rounded-lg
+                      bg-[#5c438c]/10
+                      text-[#5c438c]
+                      transition-all
+                      duration-200
+                      group-hover:bg-[#5c438c]
+                      group-hover:text-white
+                    "
+                  >
+                    <Users className="w-4 h-4" />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold text-gray-800">
+                      About Us
+                    </p>
+                    <p className="text-xs text-gray-500 mt-0.5">
+                      Meet our chapter
+                    </p>
+                  </div>
                 </Link>
-
-
-                {/* Founding Team */}
 
                 <Link
                   to="/the-founding-team"
                   className="
-                    block
-                    px-5
+                    group
+                    flex
+                    items-center
+                    gap-3
+                    px-4
                     py-3
-                    text-gray-800
-                    hover:bg-gray-50
-                    hover:text-[#5c438c]
-                    transition-colors
+                    rounded-xl
+                    transition-all
                     duration-200
+                    hover:bg-[#5c438c]/8
                   "
                 >
-                  The Founding Team
+                  <div
+                    className="
+                      flex
+                      items-center
+                      justify-center
+                      w-9
+                      h-9
+                      rounded-lg
+                      bg-[#5c438c]/10
+                      text-[#5c438c]
+                      transition-all
+                      duration-200
+                      group-hover:bg-[#5c438c]
+                      group-hover:text-white
+                    "
+                  >
+                    <Users className="w-4 h-4" />
+                  </div>
+
+                  <div>
+                    <p className="text-sm font-semibold text-gray-800">
+                      The Founding Team
+                    </p>
+                    <p className="text-xs text-gray-500 mt-0.5">
+                      Meet the founding team
+                    </p>
+                  </div>
                 </Link>
-
               </div>
-
             </div>
-
           </div>
 
-
-          {/* =================================================
+          {/* ====================================================
               MOBILE MENU BUTTON
-          ================================================== */}
+          ==================================================== */}
 
           <button
             type="button"
-            className="
-              md:hidden
-              p-2
-              rounded-lg
-              hover:bg-gray-100
-              transition-colors
-              duration-300
-              text-gray-800
-            "
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle navigation menu"
-          >
-
-            {isOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-
-          </button>
-
-        </div>
-
-
-        {/* =================================================
-            MOBILE NAVIGATION
-        ================================================== */}
-
-        {isOpen && (
-          <div
+            aria-expanded={isOpen}
             className="
               md:hidden
-              mt-4
-              bg-white
+              flex
+              items-center
+              justify-center
+              w-10
+              h-10
               rounded-xl
-              shadow-xl
+              bg-white/70
               border
-              border-gray-100
-              p-3
+              border-white
+              text-gray-800
+              shadow-sm
+              transition-all
+              duration-300
+              hover:bg-[#5c438c]
+              hover:text-white
+              hover:shadow-lg
+              active:scale-95
             "
           >
+            {isOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
+          </button>
+        </div>
 
-            {/* =================================================
-                HOME
-            ================================================== */}
+        {/* ======================================================
+            MOBILE NAVIGATION
+        ====================================================== */}
 
-            <Link
-              to="/"
+        <div
+          className={`
+            md:hidden
+            overflow-hidden
+            transition-all
+            duration-400
+            ease-out
+            ${
+              isOpen
+                ? 'max-h-[700px] opacity-100'
+                : 'max-h-0 opacity-0'
+            }
+          `}
+        >
+          <div className="px-3 pb-3">
+            <div
               className="
-                block
-                py-3
-                px-4
-                text-gray-800
-                hover:bg-gray-50
-                hover:text-[#5c438c]
-                rounded-lg
-                transition-colors
+                p-2
+                rounded-2xl
+                bg-white/60
+                border
+                border-white/70
+                backdrop-blur-xl
               "
             >
-              Home
-            </Link>
+              {/* ------------------------------------------------
+                  HOME
+              ------------------------------------------------ */}
 
-
-            {/* =================================================
-                KNOWLEDGE HUB
-            ================================================== */}
-
-            <div>
-
-              <button
-                type="button"
-                onClick={() =>
-                  setIsMobileKnowledgeOpen(
-                    !isMobileKnowledgeOpen
-                  )
-                }
-                className="
-                  w-full
+              <Link
+                to="/"
+                className={`
                   flex
                   items-center
-                  justify-between
-                  py-3
+                  gap-3
                   px-4
-                  text-gray-800
-                  hover:bg-gray-50
-                  hover:text-[#5c438c]
-                  rounded-lg
-                  transition-colors
-                "
+                  py-3.5
+                  rounded-xl
+                  text-sm
+                  font-medium
+                  transition-all
+                  duration-200
+                  ${
+                    isActive('/')
+                      ? 'bg-[#5c438c]/10 text-[#5c438c]'
+                      : 'text-gray-700 hover:bg-white/80 hover:text-[#5c438c]'
+                  }
+                `}
               >
+                <HomeIcon className="w-4 h-4" />
+                Home
+              </Link>
 
-                <span>
-                  Knowledge Hub
-                </span>
+              {/* ------------------------------------------------
+                  CONTACT
+              ------------------------------------------------ */}
 
-                <ChevronDown
-                  className={`
-                    w-5
-                    h-5
-                    transition-transform
-                    duration-200
-                    ${
-                      isMobileKnowledgeOpen
-                        ? 'rotate-180'
-                        : ''
-                    }
-                  `}
-                />
-
-              </button>
-
+              <Link
+                to="/contact"
+                className={`
+                  flex
+                  items-center
+                  gap-3
+                  px-4
+                  py-3.5
+                  rounded-xl
+                  text-sm
+                  font-medium
+                  transition-all
+                  duration-200
+                  ${
+                    isActive('/contact')
+                      ? 'bg-[#5c438c]/10 text-[#5c438c]'
+                      : 'text-gray-700 hover:bg-white/80 hover:text-[#5c438c]'
+                  }
+                `}
+              >
+                <Mail className="w-4 h-4" />
+                Contact
+              </Link>
 
               {/* =================================================
-                  KNOWLEDGE HUB SUBMENU
-              ================================================== */}
+                  KNOWLEDGE HUB
+              ================================================= */}
 
-              {isMobileKnowledgeOpen && (
-                <div
-                  className="
-                    ml-4
-                    mt-1
-                    mb-1
-                    border-l-2
-                    border-[#5c438c]/20
-                    pl-2
-                  "
+              <div className="mt-1">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setIsMobileKnowledgeOpen(
+                      !isMobileKnowledgeOpen
+                    )
+                  }
+                  className={`
+                    w-full
+                    flex
+                    items-center
+                    justify-between
+                    px-4
+                    py-3.5
+                    rounded-xl
+                    text-sm
+                    font-medium
+                    transition-all
+                    duration-200
+                    ${
+                      isKnowledgeActive
+                        ? 'bg-[#5c438c]/10 text-[#5c438c]'
+                        : 'text-gray-700 hover:bg-white/80 hover:text-[#5c438c]'
+                    }
+                  `}
                 >
+                  <span className="flex items-center gap-3">
+                    <BookOpen className="w-4 h-4" />
+                    Knowledge Hub
+                  </span>
 
-                  {/* Podcast */}
+                  <ChevronDown
+                    className={`
+                      w-4
+                      h-4
+                      transition-transform
+                      duration-300
+                      ${
+                        isMobileKnowledgeOpen
+                          ? 'rotate-180'
+                          : ''
+                      }
+                    `}
+                  />
+                </button>
 
-                  <Link
-                    to="/podcast"
+                <div
+                  className={`
+                    overflow-hidden
+                    transition-all
+                    duration-300
+                    ${
+                      isMobileKnowledgeOpen
+                        ? 'max-h-60 opacity-100'
+                        : 'max-h-0 opacity-0'
+                    }
+                  `}
+                >
+                  <div
                     className="
-                      block
-                      py-2.5
-                      px-4
-                      text-gray-600
-                      hover:text-[#5c438c]
-                      hover:bg-gray-50
-                      rounded-lg
-                      transition-colors
+                      ml-5
+                      mt-1
+                      mb-1
+                      pl-3
+                      border-l-2
+                      border-[#5c438c]/15
                     "
                   >
-                    Podcast
-                  </Link>
+                    <Link
+                      to="/podcast"
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                        px-4
+                        py-3
+                        rounded-lg
+                        text-sm
+                        text-gray-600
+                        hover:bg-[#5c438c]/5
+                        hover:text-[#5c438c]
+                        transition-colors
+                      "
+                    >
+                      <PodcastIcon className="w-4 h-4" />
+                      Podcast
+                    </Link>
 
+                    <Link
+                      to="/impact-report"
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                        px-4
+                        py-3
+                        rounded-lg
+                        text-sm
+                        text-gray-600
+                        hover:bg-[#5c438c]/5
+                        hover:text-[#5c438c]
+                        transition-colors
+                      "
+                    >
+                      <FileText className="w-4 h-4" />
+                      Impact Report
+                    </Link>
 
-                  {/* Impact Report */}
-
-                  <Link
-                    to="/impact-report"
-                    className="
-                      block
-                      py-2.5
-                      px-4
-                      text-gray-600
-                      hover:text-[#5c438c]
-                      hover:bg-gray-50
-                      rounded-lg
-                      transition-colors
-                    "
-                  >
-                    Impact Report
-                  </Link>
-
-
-                  {/* Resources */}
-
-                  <Link
-                    to="/resources"
-                    className="
-                      block
-                      py-2.5
-                      px-4
-                      text-gray-600
-                      hover:text-[#5c438c]
-                      hover:bg-gray-50
-                      rounded-lg
-                      transition-colors
-                    "
-                  >
-                    Resources
-                  </Link>
-
+                    <Link
+                      to="/resources"
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                        px-4
+                        py-3
+                        rounded-lg
+                        text-sm
+                        text-gray-600
+                        hover:bg-[#5c438c]/5
+                        hover:text-[#5c438c]
+                        transition-colors
+                      "
+                    >
+                      <Library className="w-4 h-4" />
+                      Resources
+                    </Link>
+                  </div>
                 </div>
-              )}
+              </div>
 
+              {/* =================================================
+                  ABOUT
+              ================================================= */}
+
+              <div className="mt-1">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setIsMobileAboutOpen(
+                      !isMobileAboutOpen
+                    )
+                  }
+                  className={`
+                    w-full
+                    flex
+                    items-center
+                    justify-between
+                    px-4
+                    py-3.5
+                    rounded-xl
+                    text-sm
+                    font-medium
+                    transition-all
+                    duration-200
+                    ${
+                      isAboutActive
+                        ? 'bg-[#5c438c]/10 text-[#5c438c]'
+                        : 'text-gray-700 hover:bg-white/80 hover:text-[#5c438c]'
+                    }
+                  `}
+                >
+                  <span className="flex items-center gap-3">
+                    <Users className="w-4 h-4" />
+                    About
+                  </span>
+
+                  <ChevronDown
+                    className={`
+                      w-4
+                      h-4
+                      transition-transform
+                      duration-300
+                      ${
+                        isMobileAboutOpen
+                          ? 'rotate-180'
+                          : ''
+                      }
+                    `}
+                  />
+                </button>
+
+                <div
+                  className={`
+                    overflow-hidden
+                    transition-all
+                    duration-300
+                    ${
+                      isMobileAboutOpen
+                        ? 'max-h-60 opacity-100'
+                        : 'max-h-0 opacity-0'
+                    }
+                  `}
+                >
+                  <div
+                    className="
+                      ml-5
+                      mt-1
+                      mb-1
+                      pl-3
+                      border-l-2
+                      border-[#5c438c]/15
+                    "
+                  >
+                    <Link
+                      to="/about-cdf"
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                        px-4
+                        py-3
+                        rounded-lg
+                        text-sm
+                        text-gray-600
+                        hover:bg-[#5c438c]/5
+                        hover:text-[#5c438c]
+                        transition-colors
+                      "
+                    >
+                      <Building2 className="w-4 h-4" />
+                      About CDF
+                    </Link>
+
+                    <Link
+                      to="/about-us"
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                        px-4
+                        py-3
+                        rounded-lg
+                        text-sm
+                        text-gray-600
+                        hover:bg-[#5c438c]/5
+                        hover:text-[#5c438c]
+                        transition-colors
+                      "
+                    >
+                      <Users className="w-4 h-4" />
+                      About Us
+                    </Link>
+
+                    <Link
+                      to="/the-founding-team"
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                        px-4
+                        py-3
+                        rounded-lg
+                        text-sm
+                        text-gray-600
+                        hover:bg-[#5c438c]/5
+                        hover:text-[#5c438c]
+                        transition-colors
+                      "
+                    >
+                      <Users className="w-4 h-4" />
+                      The Founding Team
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
-
-
-            {/* =================================================
-                CONTACT
-            ================================================== */}
-
-            <Link
-              to="/contact"
-              className="
-                block
-                py-3
-                px-4
-                text-gray-800
-                hover:bg-gray-50
-                hover:text-[#5c438c]
-                rounded-lg
-                transition-colors
-              "
-            >
-              Contact
-            </Link>
-
-
-            {/* =================================================
-                ABOUT
-            ================================================== */}
-
-            <Link
-              to="/about-cdf"
-              className="
-                block
-                py-3
-                px-4
-                text-gray-800
-                hover:bg-gray-50
-                hover:text-[#5c438c]
-                rounded-lg
-                transition-colors
-              "
-            >
-              About CDF
-            </Link>
-
-
-            <Link
-              to="/about-us"
-              className="
-                block
-                py-3
-                px-4
-                text-gray-800
-                hover:bg-gray-50
-                hover:text-[#5c438c]
-                rounded-lg
-                transition-colors
-              "
-            >
-              About Us
-            </Link>
-
-
-            <Link
-              to="/the-founding-team"
-              className="
-                block
-                py-3
-                px-4
-                text-gray-800
-                hover:bg-gray-50
-                hover:text-[#5c438c]
-                rounded-lg
-                transition-colors
-              "
-            >
-              The Founding Team
-            </Link>
-
           </div>
-        )}
-
+        </div>
       </nav>
-
     </header>
   );
 }
